@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="TinPet_Projeto.UWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TinPet_Projeto.UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Número 1" VerticalAlignment="Top" Height="29" Width="121" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="121" FontSize="18">
+            <Run Text="Número "/>
+            <Run Text="2"/>
+        </TextBlock>
+        <TextBox x:Name="Numero1_UI" HorizontalAlignment="Left" Margin="10,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="340" InputScope="Number"/>
+        <TextBox x:Name="Numero2_UI" HorizontalAlignment="Left" Margin="10,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="340" InputScope="Number"/>
+        <Button x:Name="Bsomar" Content="Somar" HorizontalAlignment="Left" Margin="10,152,0,0" VerticalAlignment="Top" Width="340"/>
+        <TextBlock x:Name="NumeroResultado_UI" HorizontalAlignment="Left" Margin="10,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="340" FontSize="18" Text=""/>
+        <Button x:Name="bProximaTela" Content="Proxima tela" HorizontalAlignment="Left" Margin="10,299,0,0" VerticalAlignment="Top" Width="340"/>
+
+    </Grid>
+</Page>

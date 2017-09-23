@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TextView
+        android:text="Numero 1"
+        android:layout_width="match_parent"
+        android:layout_height="27.0dp"
+        android:id="@+id/textView1"
+        android:textSize="50px" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Numero1" />
+    <TextView
+        android:text="Numero 2"
+        android:layout_width="match_parent"
+        android:layout_height="27.0dp"
+        android:id="@+id/textView1"
+        android:textSize="50px" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Numero2" />
+    <Button
+        android:id="@+id/BotaoSomar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Somar" />
+    <TextView
+        android:text="Blablabla texto que o usuário não vai ver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Resultado" />
+</LinearLayout>

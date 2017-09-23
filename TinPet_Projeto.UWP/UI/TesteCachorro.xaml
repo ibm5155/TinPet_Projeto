@@ -1,0 +1,46 @@
+﻿<Page
+    x:Class="TinPet_Projeto.UWP.UI.TesteCachorro"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TinPet_Projeto.UWP.UI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="237*"></RowDefinition>
+            <RowDefinition Height="Auto" MinHeight="285"></RowDefinition>
+            <RowDefinition Height="118*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid  Grid.Row="0">
+            <ProgressRing x:Name="CarregandoAnimacao" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Visible" IsActive="True"/>
+            <Image x:Name="Imagem" Margin="0,37,0,36"/>
+        </Grid>
+        <Grid  Grid.Row="1" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Text="Nome Cachorro:" Margin="0,0,0,63" />
+            <TextBox  Grid.Row="0" Grid.Column="1" x:Name="iNome" TextWrapping="Wrap" Text="" Width="232" Margin="0,0,0,63" HorizontalAlignment="Left"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" Text="Sexo:" Margin="0,0,0,63" />
+            <TextBox Grid.Row="1" Grid.Column="1"  x:Name="iSexo" TextWrapping="Wrap" Text="" Width="232" Margin="0,0,0,63" HorizontalContentAlignment="Right" HorizontalAlignment="Left"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="0" TextWrapping="Wrap" Text="Regiao:" Margin="0,0,0,63" />
+            <TextBox Grid.Row="2" Grid.Column="1" x:Name="iRegiao" TextWrapping="Wrap" Text="" Width="232" Margin="0,0,0,63" HorizontalAlignment="Left"/>
+
+        </Grid>
+
+
+        <Button x:Name="bAtualizar" Grid.Row="2" Content="Atualizar" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="57,50,70,0" Width="233"/>
+
+    </Grid>
+</Page>
