@@ -15,7 +15,6 @@
         </Grid.RowDefinitions>
 
         <Grid  Grid.Row="0">
-            <ProgressRing x:Name="CarregandoAnimacao" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Visible" IsActive="True"/>
             <Image x:Name="Imagem" Margin="0,37,0,36"/>
         </Grid>
         <Grid  Grid.Row="1" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">

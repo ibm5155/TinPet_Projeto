@@ -32,7 +32,7 @@ namespace TinPet_Projeto.Droid.ImageHandler
             /*Já que a !#(*$ do servico dos caras tem um delay legal ao mostrar a imagem de carregando então vamos fazer o nosso na mão*/
             ImageService.Instance.LoadUrl(URL)
             .LoadingPlaceholder("loading.png", FFImageLoading.Work.ImageSource.CompiledResource)
-            // .DownSample(300, 300)
+            .DownSample(300, 300)
             .Error(exception =>
             {
                 Finalizou = true;

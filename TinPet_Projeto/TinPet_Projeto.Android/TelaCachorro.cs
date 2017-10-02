@@ -36,7 +36,7 @@ namespace TinPet_Projeto.Droid
 
             x = new Task(()=> {
                 ImgAPI cachorroimg = new ImgAPI();
-                cachorroimg.CarregaImagemURL("https://i.imgur.com/hZ3AlAn.jpg", "", "", ref Tela, false);
+                cachorroimg.CarregaImagemURL("https://i.imgur.com/hZ3AlAn.jpg", "loading.png", "", ref Tela, false);
             });
             x.Start();
         }

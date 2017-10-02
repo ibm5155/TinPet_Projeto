@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using FFImageLoading;
 using System.Threading.Tasks;
+using TinPet_Projeto.UWP.ImageHandler;
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -27,32 +28,14 @@ namespace TinPet_Projeto.UWP.UI
     {
         private Cachorro MeuCachorro = new Cachorro();
 
-        private async void EscondeAnimacaoCarregando()
-        {
-
-            
-        }
-
-        private async void CarregaImagemPrincipal()
-        {
-            ImageService.Instance.LoadUrl(MeuCachorro.Imagem)
-            .DownSample(300, 300)
-            .Finish(workScheduled =>
-            {
-                CarregandoAnimacao.Visibility = Visibility.Collapsed;
-            })
-            .Into(Imagem)
-            ;
-
-        }
-
         public TesteCachorro()
         {
+            Task x = new Task(() => {
+                ImgAPI cachorroimg = new ImgAPI();
+                cachorroimg.CarregaImagemURL("https://i.imgur.com/hZ3AlAn.jpg", "loading.png", "", ref Imagem, false);
+            });
             this.InitializeComponent();
-
-            MeuCachorro.AddImagem("https://i.imgur.com/hZ3AlAn.jpg");/*Exemplo de carregar imagem*/
-
-            CarregaImagemPrincipal();
+            x.Start();
 
             bAtualizar.Click += delegate
             {
