@@ -35,4 +35,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Resultado" />
+    <Button
+        android:text="Proxima tela"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/botaoProximaTela" />
 </LinearLayout>

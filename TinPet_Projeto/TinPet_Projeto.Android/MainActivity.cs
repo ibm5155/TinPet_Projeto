@@ -22,7 +22,8 @@ namespace TinPet_Projeto.Droid
 			SetContentView (Resource.Layout.Main);
 
             /*Pega um ponteiro da interface*/
-			Button Botao = FindViewById<Button> (Resource.Id.BotaoSomar);
+            Button BotaoProxTela = FindViewById<Button>(Resource.Id.botaoProximaTela);
+            Button Botao = FindViewById<Button> (Resource.Id.BotaoSomar);
             TextView Numero1_UI = FindViewById<TextView>(Resource.Id.Numero1);
             TextView Numero2_UI = FindViewById<TextView>(Resource.Id.Numero2);
             TextView NumeroResultado_UI = FindViewById<TextView>(Resource.Id.Resultado);
@@ -47,7 +48,13 @@ namespace TinPet_Projeto.Droid
                     NumeroResultado_UI.Text = "";
                 }
             };
-		}
+
+            BotaoProxTela.Click += delegate
+            {
+                StartActivity(typeof(TelaCachorro));
+            };
+
+        }
 	}
 }
 

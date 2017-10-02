@@ -65,6 +65,9 @@ namespace TinPet_Projeto.Droid
 			// aapt resource value: 0x7f050003
 			public const int BotaoSomar = 2131034115;
 			
+			// aapt resource value: 0x7f050006
+			public const int Meudogepng = 2131034118;
+			
 			// aapt resource value: 0x7f050001
 			public const int Numero1 = 2131034113;
 			
@@ -73,6 +76,12 @@ namespace TinPet_Projeto.Droid
 			
 			// aapt resource value: 0x7f050004
 			public const int Resultado = 2131034116;
+			
+			// aapt resource value: 0x7f050005
+			public const int botaoProximaTela = 2131034117;
+			
+			// aapt resource value: 0x7f050007
+			public const int imageView1 = 2131034119;
 			
 			// aapt resource value: 0x7f050000
 			public const int textView1 = 2131034112;
@@ -92,6 +101,9 @@ namespace TinPet_Projeto.Droid
 			
 			// aapt resource value: 0x7f030000
 			public const int Main = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int TelaCachorro = 2130903041;
 			
 			static Layout()
 			{
