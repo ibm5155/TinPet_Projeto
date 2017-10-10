@@ -1,0 +1,142 @@
+﻿<Page
+    x:Class="TinPet_Projeto.UWP.UI.Tela_SelecionaAnimais"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TinPet_Projeto.UWP.UI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style x:Key="RoundButton" TargetType="Button">
+            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
+            <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
+            <Setter Property="BorderBrush" Value="{ThemeResource SystemControlForegroundTransparentBrush}"/>
+            <Setter Property="BorderThickness" Value="{ThemeResource ButtonBorderThemeThickness}"/>
+            <Setter Property="Padding" Value="8,4,8,4"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid x:Name="RootGrid" >
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="ContentPresenter">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseMediumLowBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseHighBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="RootGrid">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlBackgroundBaseMediumLowBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="ContentPresenter">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightTransparentBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseHighBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <PointerDownThemeAnimation Storyboard.TargetName="RootGrid"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="RootGrid">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlDisabledBaseLowBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="ContentPresenter">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlDisabledTransparentBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Rectangle RadiusX="60" RadiusY="60" Fill="{TemplateBinding Background}" Margin="0,0,10,0" />
+                            <ContentPresenter x:Name="ContentPresenter" AutomationProperties.AccessibilityView="Raw" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+
+
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*" MinHeight="35"></RowDefinition>
+            <RowDefinition Height="Auto" MinHeight="396"></RowDefinition>
+            <RowDefinition Height="87*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <SplitView x:Name="MenuOpcoes" DisplayMode="CompactOverlay"  IsPaneOpen="True" 
+              CompactPaneLength="50" OpenPaneLength="150">
+            <SplitView.Pane>
+                <StackPanel Background="#FF9B9B9B">
+                </StackPanel>
+            </SplitView.Pane>
+                <SplitView.Content>
+                    <Grid>
+                        <SplitView x:Name="Menu_SplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" 
+                   CompactPaneLength="0" OpenPaneLength="150">
+                            <SplitView.Pane>
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Name="Botao_Configura_Animais" FontFamily="Segoe MDL2 Assets" Content="&#xE713;"
+                                   Width="50" Height="50" Background="Transparent"/>
+                                    <TextBlock Text="Meus Pets" FontSize="18" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Name="Botao_Filtro" FontFamily="Segoe MDL2 Assets" Content="&#xE71C;"
+                                   Width="50" Height="50" Background="Transparent"/>
+                                    <TextBlock Text="Filtrar Busca" FontSize="18" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Name="Botao_Chat" FontFamily="Segoe MDL2 Assets" Content="&#xE8BD;"
+                                   Width="50" Height="50" Background="Transparent"/>
+                                    <TextBlock Text="Chat" FontSize="18" VerticalAlignment="Center" />
+                                </StackPanel>
+
+                            </StackPanel>
+            </SplitView.Pane>
+         </SplitView>
+
+                </Grid>
+            </SplitView.Content>
+        </SplitView>
+        
+        <Grid Grid.Row="0" Background="#FF1BDBE4">
+            <Image Source="ms-appx:///Assets/Logo.png" HorizontalAlignment="Center" />
+            <Button Name="Botao_Menu" HorizontalContentAlignment="Left" Background="{x:Null}"  FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Width="50" Height="50"  FontSize="48" />
+        </Grid>
+        <Grid Grid.Row="2" RenderTransformOrigin="1,0.5" >
+            <Button x:Name="botao_dislike" Width="72" Height="64" Background="#FF9B9B9B" Foreground="Black" BorderBrush="Transparent" BorderThickness="0" Style="{StaticResource RoundButton}" Margin="0,55,100,55" HorizontalAlignment="Center">
+                <Image Source="ms-appx:///Assets/X.png" Stretch="UniformToFill" Height="40" Width="40" NineGrid="0" Margin="0,0,10,0"/>
+            </Button>
+            <Button x:Name="botao_like" Width="72" Height="64" Background="#FFAEAEAE" HorizontalContentAlignment="Left" HorizontalAlignment="Center" Style="{StaticResource RoundButton}" Margin="100,0,0,0">
+                <Image Source="ms-appx:///Assets/Coracao.png" Stretch="UniformToFill" Height="40" Width="40" NineGrid="0" Margin="0"/>
+            </Button>
+        </Grid>
+    </Grid>
+</Page>

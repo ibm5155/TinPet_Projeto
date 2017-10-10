@@ -100,6 +100,12 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Tela_SelecionaAnimais.xaml.cs">
+      <DependentUpon>Tela_SelecionaAnimais.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Tela_SemLogin.xaml.cs">
+      <DependentUpon>Tela_SemLogin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\TesteCachorro.xaml.cs">
       <DependentUpon>TesteCachorro.xaml</DependentUpon>
     </Compile>
@@ -111,7 +117,11 @@
     <None Include="TinPet_Projeto.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Coracao.png" />
     <Content Include="Assets\loading.png" />
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\MainLogo.png" />
+    <Content Include="Assets\X.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -129,6 +139,14 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Tela_SelecionaAnimais.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Tela_SemLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\TesteCachorro.xaml">
       <SubType>Designer</SubType>

@@ -16,7 +16,7 @@
         public string Nome { get; private set; }
         public Genero genero { get; private set; }
         public double[] Regiao { get; private set; } = new double[2];/*Coordenadas XY de onde o cachorro foi registrado*/
-        public string Imagem { get; private set; } /*Lista com imagens de um cachorro*/ /*URL*/
+        public string Imagem { get; private set; } /*URL ou URI de onde se encontra a foto do cachorro*/
 
         /*Variavel foto está extendida em cadas projeto*/
         #endregion

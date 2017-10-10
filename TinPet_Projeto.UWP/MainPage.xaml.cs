@@ -52,8 +52,11 @@ namespace TinPet_Projeto.UWP
 
             bProximaTela.Click += delegate
             {
-                Frame.Navigate(typeof(UI.TesteCachorro));
+                Frame.Navigate(typeof(UI.Tela_SemLogin));
+                //Frame.Navigate(typeof(UI.TesteCachorro));
             };
+
+            
         }
     }
 }
