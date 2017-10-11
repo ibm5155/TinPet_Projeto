@@ -82,44 +82,69 @@
 
 
 
-    
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="35*" MinHeight="35"></RowDefinition>
-            <RowDefinition Height="Auto" MinHeight="396"></RowDefinition>
-            <RowDefinition Height="87*"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <SplitView Grid.Row="1" Grid.RowSpan="3" x:Name="MenuOpcoes" DisplayMode="CompactOverlay"  IsPaneOpen="false" 
-              CompactPaneLength="0" OpenPaneLength="150">
+        <SplitView Grid.Row="1" Grid.RowSpan="3" x:Name="MenuOpcoes"  IsPaneOpen="false" 
+              CompactPaneLength="0" OpenPaneLength="150" Canvas.ZIndex="2">
             <SplitView.Pane>
-                    <StackPanel Background="#FF9B9B9B">
-                    <StackPanel Orientation="Horizontal">
-                        <Button x:Name="Botao_Configura_Animais" FontFamily="Segoe MDL2 Assets" Content="&#xE713;"
-                                Width="50" Height="50" Background="Transparent">
-                        </Button>
-                        <TextBlock Text="Meus Pets" FontSize="18" VerticalAlignment="Center" />
-                        </StackPanel>
+                <StackPanel Background="#FF9B9B9B">
+                    <Button x:Name="Botao_Configura_Animais" 
+                                Width="150" Background="Transparent" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Height="50">
                         <StackPanel Orientation="Horizontal">
-                            <Button x:Name="Botao_Filtro" FontFamily="Segoe MDL2 Assets" Content="&#xE71C;"
-                                Width="50" Height="50" Background="Transparent"/>
-                            <TextBlock Text="Filtrar Busca" FontSize="18" VerticalAlignment="Center" />
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE713;" FontSize="18" VerticalAlignment="Center" />
+                            <TextBlock Text="Meus Pets" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0" />
                         </StackPanel>
+                    </Button>
+                    <Button x:Name="Botao_Filtro" Width="150" Height="50" Background="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
-                            <Button x:Name="Botao_Chat" FontFamily="Segoe MDL2 Assets" Content="&#xE8BD;"
-                                Width="50" Height="50" Background="Transparent"/>
-                            <TextBlock Text="Chat" FontSize="18" VerticalAlignment="Center" />
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE71C;" FontSize="18" VerticalAlignment="Center" />
+                            <TextBlock Text="Filtrar Busca" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0" />
                         </StackPanel>
-                    </StackPanel>
+                    </Button>
+                    <Button x:Name="Botao_Chat" Width="150" Height="50" Background="Transparent" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8BD;" FontSize="18" HorizontalAlignment="Left" Width="25" Height="25" VerticalAlignment="Top" />
+                            <TextBlock Text="Chat" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
             </SplitView.Pane>
         </SplitView>
-        
+
         <Grid Grid.Row="0" Background="#FF1BDBE4">
             <Image Source="ms-appx:///Assets/Logo.png" HorizontalAlignment="Center" />
-            <Button Name="Botao_Menu" HorizontalContentAlignment="Left" Background="{x:Null}"  FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Width="50" Height="50"  FontSize="48" />
+            <Button Name="Botao_Menu" HorizontalContentAlignment="Left" Background="{x:Null}"  FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Width="50"  FontSize="48" />
         </Grid>
-        <Grid Grid.Row="2" RenderTransformOrigin="1,0.5" >
-            <Button x:Name="botao_dislike" Width="72" Height="64" Background="#FF9B9B9B" Foreground="Black" BorderBrush="Transparent" BorderThickness="0" Style="{StaticResource RoundButton}" Margin="0,55,100,55" HorizontalAlignment="Center">
+
+        <Grid  Grid.Row="1"  Canvas.ZIndex="1">
+            <Rectangle Margin="45" Stroke="#E5000000" StrokeThickness="5" />
+            <Rectangle Margin="43" Stroke="#B2000000" StrokeThickness="6" />
+            <Rectangle Margin="40" Stroke="#B2000000" StrokeThickness="7" />
+            <Rectangle Margin="36" Stroke="#99000000" StrokeThickness="8" />
+            <Rectangle Margin="31" Stroke="#66000000" StrokeThickness="9" />
+            <Rectangle Margin="25" Stroke="#33000000" StrokeThickness="10" />
+            <Grid Background="#7E000000" Margin="50" BorderBrush="Black" Canvas.ZIndex="1" Padding="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                </Grid.RowDefinitions>
+
+
+                <Image  Grid.Row="0" Source="ms-appx:///Assets/loading.png" Margin="8"/>
+                <TextBlock Grid.Row="1" Text="Nome:" FontSize="18"/>
+                <TextBlock Grid.Row="2" Text="Idade:" FontSize="18"/>
+            </Grid>
+
+        </Grid>
+        <Grid Grid.Row="2" Margin="0,0,0,10">
+            <Button x:Name="botao_dislike" Width="72" Height="64" Background="#FF9B9B9B" Foreground="Black" BorderBrush="Transparent" BorderThickness="0" Style="{StaticResource RoundButton}" Margin="0,0,100,0" HorizontalAlignment="Center">
                 <Image Source="ms-appx:///Assets/X.png" Stretch="UniformToFill" Height="40" Width="40" NineGrid="0" Margin="0,0,10,0"/>
             </Button>
             <Button x:Name="botao_like" Width="72" Height="64" Background="#FFAEAEAE" HorizontalContentAlignment="Left" HorizontalAlignment="Center" Style="{StaticResource RoundButton}" Margin="100,0,0,0">
