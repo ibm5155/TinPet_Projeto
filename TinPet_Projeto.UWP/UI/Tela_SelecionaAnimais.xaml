@@ -90,40 +90,28 @@
             <RowDefinition Height="87*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <SplitView x:Name="MenuOpcoes" DisplayMode="CompactOverlay"  IsPaneOpen="True" 
-              CompactPaneLength="50" OpenPaneLength="150">
+        <SplitView Grid.Row="1" Grid.RowSpan="3" x:Name="MenuOpcoes" DisplayMode="CompactOverlay"  IsPaneOpen="false" 
+              CompactPaneLength="0" OpenPaneLength="150">
             <SplitView.Pane>
-                <StackPanel Background="#FF9B9B9B">
-                </StackPanel>
+                    <StackPanel Background="#FF9B9B9B">
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="Botao_Configura_Animais" FontFamily="Segoe MDL2 Assets" Content="&#xE713;"
+                                Width="50" Height="50" Background="Transparent">
+                        </Button>
+                        <TextBlock Text="Meus Pets" FontSize="18" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="Botao_Filtro" FontFamily="Segoe MDL2 Assets" Content="&#xE71C;"
+                                Width="50" Height="50" Background="Transparent"/>
+                            <TextBlock Text="Filtrar Busca" FontSize="18" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="Botao_Chat" FontFamily="Segoe MDL2 Assets" Content="&#xE8BD;"
+                                Width="50" Height="50" Background="Transparent"/>
+                            <TextBlock Text="Chat" FontSize="18" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </StackPanel>
             </SplitView.Pane>
-                <SplitView.Content>
-                    <Grid>
-                        <SplitView x:Name="Menu_SplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" 
-                   CompactPaneLength="0" OpenPaneLength="150">
-                            <SplitView.Pane>
-                            <StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <Button x:Name="Botao_Configura_Animais" FontFamily="Segoe MDL2 Assets" Content="&#xE713;"
-                                   Width="50" Height="50" Background="Transparent"/>
-                                    <TextBlock Text="Meus Pets" FontSize="18" VerticalAlignment="Center" />
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <Button x:Name="Botao_Filtro" FontFamily="Segoe MDL2 Assets" Content="&#xE71C;"
-                                   Width="50" Height="50" Background="Transparent"/>
-                                    <TextBlock Text="Filtrar Busca" FontSize="18" VerticalAlignment="Center" />
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <Button x:Name="Botao_Chat" FontFamily="Segoe MDL2 Assets" Content="&#xE8BD;"
-                                   Width="50" Height="50" Background="Transparent"/>
-                                    <TextBlock Text="Chat" FontSize="18" VerticalAlignment="Center" />
-                                </StackPanel>
-
-                            </StackPanel>
-            </SplitView.Pane>
-         </SplitView>
-
-                </Grid>
-            </SplitView.Content>
         </SplitView>
         
         <Grid Grid.Row="0" Background="#FF1BDBE4">
