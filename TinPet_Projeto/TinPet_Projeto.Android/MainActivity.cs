@@ -51,7 +51,7 @@ namespace TinPet_Projeto.Droid
 
             BotaoProxTela.Click += delegate
             {
-                StartActivity(typeof(TelaCachorro));
+                StartActivity(typeof(Tela_SemLogin));
             };
 
         }

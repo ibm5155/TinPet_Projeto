@@ -47,10 +47,22 @@ namespace TinPet_Projeto.Droid
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int Coracao = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int loading = 2130837505;
+			public const int Icon = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int loading = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int Logo = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int MainLogo = 2130837508;
+			
+			// aapt resource value: 0x7f020005
+			public const int X = 2130837509;
 			
 			static Drawable()
 			{
@@ -106,7 +118,13 @@ namespace TinPet_Projeto.Droid
 			public const int Main = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int TelaCachorro = 2130903041;
+			public const int Tela_SelecionaAnimais = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int Tela_SemLogin = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int TelaCachorro = 2130903043;
 			
 			static Layout()
 			{
