@@ -1,14 +1,14 @@
 ﻿using System;
 using System.IO;
-using System.Net.Http;
-using System.Net.Http.Headers;
+//using System.Net.Http;
+//using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace TinPet_Projeto.Models
 {
     public class Downloader
     {
-        public async static Task<Stream> DownloadFromURL(string URL)
+    /*    public async static Task<Stream> DownloadFromURL(string URL)
         {
             Stream Output= Stream.Null;
             var httpClient = new HttpClient();
@@ -16,6 +16,6 @@ namespace TinPet_Projeto.Models
             Task<byte[]> contentsTask = httpClient.GetByteArrayAsync(URL);
             var contents = await contentsTask;
             return Output;
-        }
+        }*/
     }
 }

@@ -7,19 +7,19 @@
     <ImageView
         android:src="@drawable/mainlogo"
         android:layout_width="match_parent"
-        android:layout_height="32"
+        android:layout_height="32dp"
         android:layout_weight="3"
         android:id="@+id/imageView1" />
     <TextView
-        android:layout_width="32"
-        android:layout_height="32"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_weight="3"
         android:id="@+id/textView1" />
     <Button
         android:text="CONECTAR COM O FACEBOOK"
         android:textSize="24dp"
         android:layout_width="match_parent"
-        android:layout_height="1"
+        android:layout_height="1dp"
         android:layout_weight="1"
         android:id="@+id/Botao_Login"
         android:backgroundTint="#ff4267b2" />
