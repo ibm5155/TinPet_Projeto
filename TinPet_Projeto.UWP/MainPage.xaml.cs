@@ -56,7 +56,13 @@ namespace TinPet_Projeto.UWP
                 //Frame.Navigate(typeof(UI.TesteCachorro));
             };
 
-            
+            // Put the following code in your mainform loaded event
+            // Note that this will not work in the App.xaml.cs Loaded
+#if DEBUG
+            System.Diagnostics.Debug.WriteLine("Windows Store SID = " + Microsoft.Toolkit.Uwp.Services.Facebook.FacebookService.Instance.WindowsStoreId);
+#endif
+
+
         }
     }
 }

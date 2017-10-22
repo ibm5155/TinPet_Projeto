@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -24,6 +25,7 @@ namespace TinPet_Projeto.UWP.UI
     {
         public Tela_SelecionaAnimais()
         {
+            Task.Delay(1000);
             this.InitializeComponent();
 
             Botao_Menu.Click += delegate

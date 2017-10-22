@@ -28,10 +28,10 @@ namespace TinPet_Projeto.APIS
             ExpiraEm = 0;
 
             auth = new OAuth2Authenticator(
-            clientId: "537904446553253",//513f5038d6c8721421782ce592e5cec7
+            clientId: FacebookID.ID,
             scope: "",
-            authorizeUrl: new Uri("https://m.facebook.com/v2.10/dialog/oauth/"),
-            redirectUrl: new Uri("http://www.facebook.com/connect/login_success.htm"));
+            authorizeUrl: new Uri(FacebookID.End_Autorizacao),
+            redirectUrl: new Uri(FacebookID.End_Redirecionamento));
         }
 
         public void GetID()

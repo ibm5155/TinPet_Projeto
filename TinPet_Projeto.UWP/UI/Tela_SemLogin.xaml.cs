@@ -12,6 +12,11 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using TinPet_Projeto.UWP.APIS;
+using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
+using Windows.Foundation.Metadata;
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,16 +27,23 @@ namespace TinPet_Projeto.UWP.UI
     /// </summary>
     public sealed partial class Tela_SemLogin : Page
     {
+
         public Tela_SemLogin()
         {
             this.InitializeComponent();
 
-            Botao_Login.Click += delegate
+            Botao_Login.Click += async delegate
             {
-             /*Faz o login com o facebook*/
-             /*Se tem animais cadastrados então já pule para a tela de seleção de animais*/
-                Frame.Navigate(typeof(UI.Tela_SelecionaAnimais));
+                UWP_Facebook Usuario = new UWP_Facebook();
+                await Usuario.GetIDAsync();
+                if (Usuario.Id != "")
+                {
+                    //Temos um usuário válido
+                    this.Frame.Navigate(typeof(UI.Tela_SelecionaAnimais));
+                }
             };
         }
+
+  
     }
 }
