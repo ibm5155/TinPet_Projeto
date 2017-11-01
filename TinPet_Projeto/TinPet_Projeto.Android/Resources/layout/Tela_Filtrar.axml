@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_Tela_Filtrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="#33B86C"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_scrollFlags="scroll|enterAlways" />
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout_Tela_Filtrar"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent">
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_height="match_parent"
+            android:layout_width="200dp"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:menu="@menu/menu" />
+    </android.support.v4.widget.DrawerLayout>
+    <TextView
+        android:text="FILTRO"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#00008B" />
+    <TextView
+        android:text="Idade"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:paddingLeft="20dp"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:minHeight="40px"
+            android:background="@drawable/borda_marrom">
+            <EditText
+                android:inputType="numberDecimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/InputBox_Idade_Minima"
+                android:textSize="64dp" />
+            <TextView
+                android:text="de"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/textView3" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:minHeight="25px"
+            android:background="@drawable/borda_marrom">
+            <EditText
+                android:inputType="numberDecimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/InputBox_Idade_Maxima"
+                android:textSize="64dp" />
+            <TextView
+                android:text="até"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/textView4" />
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#00008B" />
+    <CheckBox
+        android:text="Somente Animais com Pedigree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBox1" />
+    <Button
+        android:text="Filtrar Raças"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#00008B"
+        android:id="@+id/view1" />
+    <TextView
+        android:text="Distancia de busca em  Km"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5" />
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Slider_Distancia" />
+</LinearLayout>

@@ -10,13 +10,13 @@ using TinPet_Projeto.APIS;
 
 namespace TinPet_Projeto.UWP.APIS
 {
-    public class UWP_Facebook
+    public class Facebook : IFacebook
     {
         public string Id;
         public string Nome;
 
 
-        public UWP_Facebook()
+        public Facebook()
         {
             Id = "";
             Nome = "";
@@ -29,7 +29,7 @@ namespace TinPet_Projeto.UWP.APIS
                  */
         }
 
-        public async Task GetIDAsync()
+        public async Task Login()
         {
             // Login to Facebook
             if (!await FacebookService.Instance.LoginAsync())
@@ -38,6 +38,16 @@ namespace TinPet_Projeto.UWP.APIS
             }
             Id = FacebookService.Instance.Provider.User.Id;
             Nome = FacebookService.Instance.LoggedUser;        
+        }
+
+        public string GetId()
+        {
+            return Id;
+        }
+
+        public string GetNome()
+        {
+            return Nome;
         }
     }
 }

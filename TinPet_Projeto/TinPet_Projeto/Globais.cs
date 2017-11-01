@@ -9,6 +9,5 @@ namespace TinPet_Projeto
 {
     public class Globais
     {
-        public static PCLFacebook Usuario = new PCLFacebook();
     }
 }

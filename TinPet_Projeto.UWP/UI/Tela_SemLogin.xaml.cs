@@ -34,8 +34,8 @@ namespace TinPet_Projeto.UWP.UI
 
             Botao_Login.Click += async delegate
             {
-                UWP_Facebook Usuario = new UWP_Facebook();
-                await Usuario.GetIDAsync();
+                Facebook Usuario = new Facebook();
+                await Usuario.Login();
                 if (Usuario.Id != "")
                 {
                     //Temos um usuário válido

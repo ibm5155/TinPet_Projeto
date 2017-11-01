@@ -4,13 +4,16 @@
   	android:title="TinPet">  
 	<group android:checkableBehavior="single">  
 		<item  
-			android:id="@+id/nav_home"  
+			android:id="@+id/nav_meuspets"  
 			android:title="Meus Pets" />  
 		<item  
-			android:id="@+id/nav_messages"  
-			android:title="Filtrar Busca" />  
-		<item  
-			android:id="@+id/nav_about"  
+			android:id="@+id/nav_filtrarbusca"  
+			android:title="Filtrar Busca" />
+    <item
+			android:id="@+id/nav_buscapets"
+			android:title="Buscar Pets" />
+    <item  
+			android:id="@+id/nav_chat"  
 			android:title="Chat" />    
 	</group>  
 </menu>   

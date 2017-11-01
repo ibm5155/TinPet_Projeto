@@ -10,10 +10,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Xamarin.Auth;
-using TinPet_Projeto.APIS;
 
 using TinPet_Projeto;
-using TinPet_Projeto.APIS;
+using TinPet_Projeto.Droid.APIS;
 using System.Threading.Tasks;
 
 namespace TinPet_Projeto.Droid
@@ -63,12 +62,12 @@ namespace TinPet_Projeto.Droid
                                     }
                                 };
                                 */
-                PCLFacebook Usuario = new PCLFacebook();
+                Facebook Usuario = new Facebook();
                 var ui = Usuario.auth.GetUI(this);
                 Task task = new Task( ()=>
                 {
                     //Roda em paralelo a UI principal o código para pegar a ID/NOME do usuário
-                    Usuario.GetID();
+                    Usuario.Login();
                     StartActivity(ui);
                     Usuario.semaforo.WaitOne(); //espera a tela do facebook terminar de ser processada
                     //não botar o wait one fora da thread senão você vai travar a main thread que lida com a ui em geral

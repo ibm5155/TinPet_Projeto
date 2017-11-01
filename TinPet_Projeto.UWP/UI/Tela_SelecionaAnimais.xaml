@@ -107,6 +107,13 @@
                             <TextBlock Text="Filtrar Busca" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0" />
                         </StackPanel>
                     </Button>
+                    <Button x:Name="Botao_Escolher_Animais" 
+                                Width="150" Background="Transparent" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Height="50">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE71E;" FontSize="18" VerticalAlignment="Center" />
+                            <TextBlock Text="Buscar Pets" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0" />
+                        </StackPanel>
+                    </Button>
                     <Button x:Name="Botao_Chat" Width="150" Height="50" Background="Transparent" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8BD;" FontSize="18" HorizontalAlignment="Left" Width="25" Height="25" VerticalAlignment="Top" />
@@ -123,23 +130,56 @@
         </Grid>
 
         <Grid  Grid.Row="1"  Canvas.ZIndex="1">
-            <Rectangle Margin="45" Stroke="#E5000000" StrokeThickness="5" />
+            <Border Margin="45" BorderBrush="#E5000000" BorderThickness="5" CornerRadius="5" Opacity="0.3"/>
+            <Border Margin="40" BorderBrush="#E5000000" BorderThickness="10" CornerRadius="5" Opacity="0.3"/>
+            <Border Margin="35" BorderBrush="#E5000000" BorderThickness="15" CornerRadius="5" Opacity="0.3"/>
+            <Border Margin="25" BorderBrush="#E5000000" BorderThickness="25" CornerRadius="5" Opacity="0.3"/>
+            <Border Margin="15" BorderBrush="#E5000000" BorderThickness="35" CornerRadius="5" Opacity="0.3"/>
+            <Border Margin="10" BorderBrush="#E5000000" BorderThickness="40" CornerRadius="5" Opacity="0.3"/>
+
+            <!--<Rectangle Margin="45" Stroke="#E5000000" StrokeThickness="5" />
             <Rectangle Margin="43" Stroke="#B2000000" StrokeThickness="6" />
             <Rectangle Margin="40" Stroke="#B2000000" StrokeThickness="7" />
             <Rectangle Margin="36" Stroke="#99000000" StrokeThickness="8" />
             <Rectangle Margin="31" Stroke="#66000000" StrokeThickness="9" />
             <Rectangle Margin="25" Stroke="#33000000" StrokeThickness="10" />
-            <Grid Background="#7E000000" Margin="50" BorderBrush="Black" Canvas.ZIndex="1" Padding="0">
+            --><Grid Background="#7E000000" Margin="50" BorderBrush="Black" Canvas.ZIndex="1" Padding="0">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
-                    <RowDefinition Height="24"></RowDefinition>
-                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
                 </Grid.RowDefinitions>
 
 
                 <Image  Grid.Row="0" Source="ms-appx:///Assets/loading.png" Margin="8"/>
-                <TextBlock Grid.Row="1" Text="Nome:" FontSize="18"/>
-                <TextBlock Grid.Row="2" Text="Idade:" FontSize="18"/>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="1">
+                    <TextBlock  Text="Nome:" FontSize="18" FontWeight="Bold"/>
+                    <TextBlock x:Name="Cachorro_Nome" Text="Douglas" FontSize="18"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="2">
+                    <TextBlock  Text="Raça:" FontSize="18" FontWeight="Bold"/>
+                    <TextBlock x:Name="Cachorro_Raca" Text="Vira Lata" FontSize="18"/>
+                </StackPanel>
+
+
+                <Grid Grid.Row="3" Margin="5,0,0,0" HorizontalAlignment="Left" Width="90">
+                    <Border BorderBrush="Aqua" BorderThickness="16" CornerRadius="5" />
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="ms-appx:///Assets/distance.png" Height="27" />
+                        <TextBlock  x:Name="Distancia" Text="100Km" FontSize="18" Margin="0,5,0,0"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Row="3" Margin="5,0,0,0" HorizontalAlignment="Right" Width="90">
+                    <Border BorderBrush="Aqua" BorderThickness="16" CornerRadius="5" />
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="ms-appx:///Assets/birthday-cake.png" Height="27" />
+                        <TextBlock  x:Name="Idade" Text="99Anos" FontSize="18" Margin="0,5,0,0"/>
+                    </StackPanel>
+                </Grid>
             </Grid>
 
         </Grid>

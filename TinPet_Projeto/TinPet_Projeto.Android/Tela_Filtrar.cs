@@ -14,27 +14,24 @@ using FFImageLoading.Views;
 using TinPet_Projeto.Droid.ImageHandler;
 using System.Threading.Tasks;
 
+
 namespace TinPet_Projeto.Droid
 {
-    [Activity(Label = "TelaCachorro", Theme = "@style/Theme.DesignDemo", MainLauncher = true)]
-    public class Tela_SelecionaAnimais : AppCompatActivity
+    [Activity(Label = "TelaFiltrar", Theme = "@style/Theme.DesignDemo", MainLauncher = true)]
+    public class Tela_Filtrar : AppCompatActivity
     {
         DrawerLayout drawerLayout;
         NavigationView navigationView;
 
-        void carregaimagem()
-        {
 
-
-        }
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             // Set our view from the "main" layout resource  
-            SetContentView(Resource.Layout.Tela_SelecionaAnimais);
+            SetContentView(Resource.Layout.Tela_Filtrar);
 
-            var toolbar = FindViewById<V7Toolbar>(Resource.Id.toolbar);
+            var toolbar = FindViewById<V7Toolbar>(Resource.Id.toolbar_Tela_Filtrar);
             SetSupportActionBar(toolbar);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowTitleEnabled(false);
@@ -43,16 +40,6 @@ namespace TinPet_Projeto.Droid
             drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
 
-            /*            carregaimagem();
-                        ImageViewAsync Tela = FindViewById<ImageViewAsync>(Resource.Id.Meudogepng);
-
-                        x = new Task(()=> {
-                            ImgAPI cachorroimg = new ImgAPI();
-                            cachorroimg.CarregaImagemURL("https://i.imgur.com/hZ3AlAn.jpg", "loading.png", "", ref Tela, false);
-                        });
-                        x.Start();
-                        */
-            navigationView.NavigationItemSelected += NavigationView_NavigationItemSelected;
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -64,16 +51,6 @@ namespace TinPet_Projeto.Droid
                     return true;
             }
             return base.OnOptionsItemSelected(item);
-        }
-
-        void NavigationView_NavigationItemSelected(object sender, NavigationView.NavigationItemSelectedEventArgs e)
-        {
-            switch (e.MenuItem.ItemId)
-            {
-                case (Resource.Id.nav_filtrarbusca):
-                    StartActivity(typeof(Tela_Filtrar));
-                    break;
-            }
         }
 
     }

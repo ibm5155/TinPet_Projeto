@@ -47,7 +47,7 @@
             this.Nome = Nome;
         }
 
-        public async void AddImagem(string EndInternet)
+        public void AddImagem(string EndInternet)
         {
             Imagem = EndInternet;
         }
