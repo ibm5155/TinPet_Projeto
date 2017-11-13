@@ -54,8 +54,8 @@ namespace TinPet_Projeto.UWP.UI
                 }
                 if (DadosValidos == true)
                 {
-                    MeuCachorro.SetNome(iNome.Text);
-                    MeuCachorro.SetRegiao(double.Parse(iRegiao.Text), 0);
+                    MeuCachorro.Nome = iNome.Text;
+//                    MeuCachorro.SetRegiao(double.Parse(iRegiao.Text), 0);
                 }
             };
         }

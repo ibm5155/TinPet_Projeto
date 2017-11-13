@@ -13,6 +13,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using TinPet_Projeto.Models;
+using TinPet_Projeto.UWP.ImageHandler;
+using TinPet_Projeto.UWP.Models;
+using Windows.Storage;
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,11 +27,30 @@ namespace TinPet_Projeto.UWP.UI
     /// </summary>
     public sealed partial class Tela_SelecionaAnimais : Page
     {
+        private List<Cachorro> Filtro;
+
         public Tela_SelecionaAnimais()
         {
             Task.Delay(1000);
             this.InitializeComponent();
 
+            /*nova Thread separada da UI*/
+            Task FiltrarDadosDB = new Task(
+                async ()=>
+                {
+                    var x = ApplicationData.Current.LocalFolder.TryGetItemAsync("Cachorros.db");
+                    File.Exists(Path.Combine(ApplicationData.Current.LocalFolder.Path, "Cachorros.db"));
+                    DataBase DB = new DataBase();
+                    await DB.GetConnectionAsync();
+                    Filtro = DB.GetCachorros((int)TipoGenero.Feminino);
+                    ImgAPI imgAPI = new ImgAPI();
+                    imgAPI.CarregaImagemMemoria(ref CachorroAtual_IMG, Filtro[0].Imagem, false);
+
+                }
+                );
+
+
+            #region menu flyout comandos
             Botao_Menu.Click += delegate
             {
                 MenuOpcoes.IsPaneOpen = !MenuOpcoes.IsPaneOpen;
@@ -40,6 +63,10 @@ namespace TinPet_Projeto.UWP.UI
             {
                 this.Frame.Navigate(typeof(UI.Tela_Filtrar));
             };
+            #endregion
+
+
+            FiltrarDadosDB.Start();
 
         }
     }

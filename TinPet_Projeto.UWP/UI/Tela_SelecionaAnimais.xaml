@@ -152,7 +152,7 @@
                 </Grid.RowDefinitions>
 
 
-                <Image  Grid.Row="0" Source="ms-appx:///Assets/loading.png" Margin="8"/>
+                <Image  x:Name="CachorroAtual_IMG" Grid.Row="0" Source="ms-appx:///Assets/loading.png" Margin="8"/>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="1">
                     <TextBlock  Text="Nome:" FontSize="18" FontWeight="Bold"/>

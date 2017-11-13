@@ -7,6 +7,7 @@ using FFImageLoading;
 using System.Threading;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Popups;
+using System.IO;
 
 namespace TinPet_Projeto.UWP.ImageHandler
 {
@@ -69,6 +70,43 @@ namespace TinPet_Projeto.UWP.ImageHandler
             .IntoAsync(Destino);
         }
 
+        public void CarregaImagemMemoria(ref Image Destino, byte[] ImagemEmBytes, bool MostraErro)
+        {
+            Finalizou = false;
+            Carregando = true;
+            Falha = false;
+
+            Task<Stream> GetStreamDeBytes(CancellationToken ct)
+            {
+
+                //Since we need to return a Task<Stream> we will use a TaskCompletionSource>
+                TaskCompletionSource<Stream> tcs = new TaskCompletionSource<Stream>();
+
+                tcs.TrySetResult(new MemoryStream(ImagemEmBytes));
+
+                return tcs.Task;
+
+            }
+
+            ImageService.Instance.LoadStream(GetStreamDeBytes)
+            .WithPriority(FFImageLoading.Work.LoadingPriority.High)
+            .DownSample(300, 300)
+            .Error(exception =>
+            {
+                Finalizou = true;
+                Falha = true;
+                if (MostraErro == true)
+                {
+                    new MessageDialog("Ocorreu um erro ao carregar a imagem").ShowAsync();
+                }
+            })
+            .Finish(workScheduled =>
+            {
+                Finalizou = true;
+            })
+            .IntoAsync(Destino);
+
+        }
 
         public async void AdicionaCache(string URLouPATH, FFImageLoading.Work.ImageSource Source)
         {
@@ -85,6 +123,5 @@ namespace TinPet_Projeto.UWP.ImageHandler
                     .PreloadAsync();
             }
         }
-
     }
 }
