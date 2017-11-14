@@ -23,14 +23,107 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:minWidth="25px"
-            android:minHeight="25px">
-            <TextView
-                android:text="Large Text"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="wrap_content"
+            android:minHeight="25px" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <!--Dados Cachorro Atual-->
+            <GridLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView1" />
-        </RelativeLayout>
+                android:orientation="vertical"
+                android:layout_marginRight="30.0dp"
+                android:layout_marginLeft="30.0dp"
+                android:background="#818181">
+                <ImageView
+                    android:src="@drawable/loading"
+                    android:id="@+id/imageView1"
+                    android:layout_marginRight="5.0dp"
+                    android:layout_marginLeft="5.0dp"
+                    android:layout_marginTop="5.5dp" />
+            <!--Nome-->
+                <GridLayout
+                    android:orientation="horizontal"
+                    android:minWidth="25dp"
+                    android:minHeight="25dp"
+                    android:layout_marginLeft="24.0dp">
+                    <TextView
+                        android:text="Nome:"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+                    <TextView
+                        android:text="Data"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/Cachorro_Nome" />
+                </GridLayout>
+            <!--Raça-->
+                <GridLayout
+                    android:orientation="horizontal"
+                    android:minWidth="25dp"
+                    android:minHeight="25dp"
+                    android:layout_marginLeft="24.0dp">
+                    <TextView
+                        android:text="Raça:"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+                    <TextView
+                        android:text="Data"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/Cachorro_Raca" />
+                </GridLayout>
+            <!--Km e Idade-->
+                <GridLayout
+                    android:orientation="horizontal"
+                    android:columnCount="2"
+                    android:layout_width="match_parent"
+                    android:minHeight="25dp"
+                    android:layout_marginTop="10.0dp">
+                <!--Km-->
+                    <GridLayout
+                        android:orientation="horizontal"
+                        android:minWidth="25dp"
+                        android:minHeight="25dp"
+                        android:background="#01FFFF">
+                        <TextView
+                            android:text="Data"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="#000000"
+                            android:id="@+id/Cachorro_Distancia" />
+                        <TextView
+                            android:text="Km"
+                            android:textColor="#000000"
+                            android:textAppearance="?android:attr/textAppearanceMedium" />
+                    </GridLayout>
+                <!--Idade-->
+                    <GridLayout
+                        android:orientation="horizontal"
+                        android:layout_gravity="right"
+                        android:minWidth="25dp"
+                        android:minHeight="25dp"
+                        android:background="#01FFFF">
+                        <TextView
+                            android:text="Data"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="#000000"
+                            android:id="@+id/Cachorro_Idade" />
+                        <TextView
+                            android:text="Anos"
+                            android:textColor="#000000"
+                            android:textAppearance="?android:attr/textAppearanceMedium" />
+                    </GridLayout>
+                </GridLayout>
+            </GridLayout>
+        <!-- Botão Like/Dislike-->
+            <GridLayout
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:minWidth="25dp"
+                android:minHeight="25dp">
+                <TextView
+                    android:text="Like Dislike..."
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </GridLayout>
+        </LinearLayout>
         <android.support.design.widget.NavigationView
             android:id="@+id/nav_view"
             android:layout_height="match_parent"
