@@ -17,6 +17,7 @@ using TinPet_Projeto.Models;
 using TinPet_Projeto.UWP.ImageHandler;
 using TinPet_Projeto.UWP.Models;
 using Windows.Storage;
+using TinPet_Projeto.Database;
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -38,11 +39,9 @@ namespace TinPet_Projeto.UWP.UI
             Task FiltrarDadosDB = new Task(
                 async ()=>
                 {
-                    var x = ApplicationData.Current.LocalFolder.TryGetItemAsync("Cachorros.db");
-                    File.Exists(Path.Combine(ApplicationData.Current.LocalFolder.Path, "Cachorros.db"));
-                    DataBase DB = new DataBase();
-                    await DB.GetConnectionAsync();
-                    Filtro = DB.GetCachorros((int)TipoGenero.Feminino);
+                    DataAccess DB = new DataAccess();
+                    //await DB.GetConnectionAsync();
+                    Filtro = DB.GetCachorros(TipoGenero.Feminino);
                     ImgAPI imgAPI = new ImgAPI();
                     imgAPI.CarregaImagemMemoria(ref CachorroAtual_IMG, Filtro[0].Imagem, false);
 

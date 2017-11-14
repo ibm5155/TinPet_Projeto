@@ -13,38 +13,38 @@ using Windows.ApplicationModel;
 
 namespace TinPet_Projeto.UWP.Models
 {
-    public class DataBase : IDataBase
+    public class DataBase_UWP : IDataBase
     {
-        private SQLiteConnection _database;
-
+//        private SQLiteConnection _database;
+        private Semaphore EsperaCopia = new Semaphore(0, 1);
+        /*
         public async Task GetConnectionAsync()
         {
-
-            var caminhoDB2 = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "DataBase.db3");
-            _database = new SQLiteConnection(caminhoDB2);
-            _database.CreateTable<teste>();
-            _database.Commit();
-            _database.Close();
-
-
-
-
-
 
             Console.WriteLine("oi db");
             var nomeDB = "Cachorros.db";
             /*Caminho da pasta + nome do arquivo*/
-            await SetGambiarraPraCopiarBancoDeDados (nomeDB);
+        /*    await SetGambiarraPraCopiarBancoDeDados (nomeDB);
+            EsperaCopia.WaitOne();
             var caminhoDB = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, nomeDB);
             Console.WriteLine("oi db carregando");
             _database = new SQLiteConnection(caminhoDB);
-            _database.CreateTable<Cachorro>(); 
+        }*/
+
+        public SQLiteConnection GetConexao(string NomeDB)
+        {
+            /*Caminho da pasta + nome do arquivo*/
+            SetGambiarraPraCopiarBancoDeDados(NomeDB);
+            EsperaCopia.WaitOne(); //O uso de semaforo vai evitar o uso de await nesta chamada
+            var caminhoDB = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, NomeDB);
+            return new SQLiteConnection(caminhoDB);
+
         }
 
-        public List<Cachorro> GetCachorros(int genero)
+    /*    public List<Cachorro> GetCachorros(TipoGenero genero)
         {
             return _database.Table<Cachorro>().Where(c => c.Genero == genero).ToList();
-        }
+        }*/
 
         public async Task SetGambiarraPraCopiarBancoDeDados(string NomeDB)
         {
@@ -63,7 +63,8 @@ namespace TinPet_Projeto.UWP.Models
                 StorageFile databaseFile = await Package.Current.InstalledLocation.GetFileAsync(NomeDB);
                 await databaseFile.CopyAsync(ApplicationData.Current.LocalFolder, NomeDB, NameCollisionOption.ReplaceExisting);
             }
-
+            EsperaCopia.Release();
         }
+
     }
 }

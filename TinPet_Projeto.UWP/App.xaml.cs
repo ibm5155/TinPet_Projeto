@@ -1,8 +1,12 @@
-﻿using System;
+﻿using MvvmCross.Platform;
+using MvvmCross.Platform.IoC;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TinPet_Projeto.Models;
+using TinPet_Projeto.UWP.Models;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -29,7 +33,22 @@ namespace TinPet_Projeto.UWP
         public App()
         {
             this.InitializeComponent();
+
+            /*Ver http://arteksoftware.com/ioc-containers-with-xamarin/*/
+            /*Resumidamente o Autofac linka um codigo a outro assim poderá ser trabalhado
+             todo o código a partir do projet o PCL, fazendo um bom reaproveitamento de código
+             pois todas as plataformas terão uma parte de código em comum
+             ...
+             https://www.mvvmcross.com/
+             */
+            MvxSimpleIoCContainer.Initialize();
+            Mvx.RegisterSingleton<IDataBase>(new DataBase_UWP());
+
+
             this.Suspending += OnSuspending;
+
+
+
         }
 
         /// <summary>

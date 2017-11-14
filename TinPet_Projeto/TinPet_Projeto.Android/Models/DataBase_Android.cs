@@ -17,18 +17,17 @@ using System.Threading.Tasks;
 
 namespace TinPet_Projeto.Droid.Models
 {
-    public class DataBase : IDataBase
+    public class DataBase_Android : IDataBase
     {
         private SQLiteConnection _database; 
 
 
-        public async Task GetConnectionAsync()
+        public SQLiteConnection GetConexao(string nomeDB)
         {
-            var nomeDB = "DataBase.db";
             /*Caminho da pasta + nome do arquivo*/
             var caminhoDB = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal),nomeDB);
 
-            _database = new SQLiteConnection(caminhoDB);
+            return new SQLiteConnection(caminhoDB);
         }
 
     }
