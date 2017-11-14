@@ -29,6 +29,9 @@ namespace TinPet_Projeto.UWP.UI
     public sealed partial class Tela_SelecionaAnimais : Page
     {
         private List<Cachorro> Filtro;
+        private int CachorroAtual = 0;
+        private bool CachorroAtualCarregado = true;
+        private ImgAPI imgAPI = new ImgAPI();
 
         public Tela_SelecionaAnimais()
         {
@@ -37,15 +40,13 @@ namespace TinPet_Projeto.UWP.UI
 
             /*nova Thread separada da UI*/
             Task FiltrarDadosDB = new Task(
-                async ()=>
+                ()=>
                 {
                     DataAccess DB = new DataAccess();
                     //await DB.GetConnectionAsync();
                     Filtro = DB.GetCachorros(TipoGenero.Feminino);
-                    ImgAPI imgAPI = new ImgAPI();
-                    imgAPI.CarregaImagemMemoria(ref CachorroAtual_IMG, Filtro[0].Imagem, false);
-
-                }
+                    CarregaProximo();
+            }
                 );
 
 
@@ -64,9 +65,47 @@ namespace TinPet_Projeto.UWP.UI
             };
             #endregion
 
+            #region botão like dislike
+
+            botao_dislike.Click += delegate
+            {
+                if (Filtro.Count() != 0)
+                {
+                    CarregaProximo();
+                }
+            };
+
+            botao_like.Click += delegate
+            {
+                if (Filtro.Count() != 0)
+                {
+                    CarregaProximo();
+                }
+            };
+            #endregion
+
 
             FiltrarDadosDB.Start();
 
+        }
+
+        private void CarregaProximo()
+        {
+            lock (Filtro)
+            {
+                CachorroAtualCarregado = false;
+                CachorroAtual++;
+                if (CachorroAtual == Filtro.Count())
+                {
+                    CachorroAtual = 0;
+                }
+
+                imgAPI.CarregaImagemMemoria(ref CachorroAtual_IMG, Filtro[CachorroAtual].Imagem, false);
+                Cachorro_Nome.Text = Filtro[CachorroAtual].Nome;
+                Cachorro_Raca.Text = Filtro[CachorroAtual].Raca.ToString();
+                Idade.Text = "10";
+                CachorroAtualCarregado = true;
+            }
         }
     }
 }
