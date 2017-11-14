@@ -19,12 +19,12 @@ namespace TinPet_Projeto.Database
 
         public DataAccess()
         {
-            _bandodedados = _iDB.GetConexao("Cachorros.db");
+            _bandodedados = _iDB.GetConexaoLocal("Cachorros.db");
         }
 
         public DataAccess(string NomeBandoDeDados)
         {
-            _bandodedados = _iDB.GetConexao(NomeBandoDeDados);
+            _bandodedados = _iDB.GetConexaoLocal(NomeBandoDeDados);
         }
 
         public List<Cachorro> GetCachorros(TipoGenero genero)

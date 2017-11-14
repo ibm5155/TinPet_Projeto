@@ -31,22 +31,19 @@ namespace TinPet_Projeto.UWP.Models
             _database = new SQLiteConnection(caminhoDB);
         }*/
 
-        public SQLiteConnection GetConexao(string NomeDB)
+        public SQLiteConnection GetConexaoLocal(string NomeDB)
         {
             /*Caminho da pasta + nome do arquivo*/
-            SetGambiarraPraCopiarBancoDeDados(NomeDB);
+            TransfereBandoDeDados(NomeDB);
             EsperaCopia.WaitOne(); //O uso de semaforo vai evitar o uso de await nesta chamada
             var caminhoDB = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, NomeDB);
             return new SQLiteConnection(caminhoDB);
 
         }
 
-    /*    public List<Cachorro> GetCachorros(TipoGenero genero)
-        {
-            return _database.Table<Cachorro>().Where(c => c.Genero == genero).ToList();
-        }*/
 
-        public async Task SetGambiarraPraCopiarBancoDeDados(string NomeDB)
+        /*Transfere o banco de dados interno do aplicativo para fora dele para que o SqLite possa usa-lo*/
+        public async Task TransfereBandoDeDados(string NomeDB)
         {
             bool isExisting = false;
             try

@@ -33,6 +33,7 @@
     <AotAssemblies>false</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
     <BundleAssemblies>false</BundleAssemblies>
+    <AndroidSupportedAbis />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -170,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIS\Facebook.cs" />
+    <Compile Include="APIS\FileHelper_Assets.cs" />
     <Compile Include="ImageHandler\ImgAPI.cs" />
     <Compile Include="LoginPageRender.cs" />
     <Compile Include="MainActivity.cs" />
@@ -183,6 +185,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <AndroidAsset Include="Assets\Cachorros.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </AndroidAsset>
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />

@@ -7,6 +7,12 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using TinPet_Projeto;
+using MvvmCross.Platform.IoC;
+using MvvmCross.Platform;
+using TinPet_Projeto.Models;
+using TinPet_Projeto.Droid.Models;
+using Android.Content.Res;
+using TinPet_Projeto.APIS;
 
 namespace TinPet_Projeto.Droid
 {
@@ -18,8 +24,20 @@ namespace TinPet_Projeto.Droid
 		{
 			base.OnCreate (bundle);
 
-			// Set our view from the "main" layout resource
-			SetContentView (Resource.Layout.Main);
+            /*Ver http://arteksoftware.com/ioc-containers-with-xamarin/*/
+            /*Resumidamente o Autofac linka um codigo a outro assim poderá ser trabalhado
+             todo o código a partir do projet o PCL, fazendo um bom reaproveitamento de código
+             pois todas as plataformas terão uma parte de código em comum
+             ...
+             https://www.mvvmcross.com/
+             */
+            MvxSimpleIoCContainer.Initialize();
+            Mvx.RegisterSingleton<IDataBase>(new DataBase_Android());
+
+            APIS.FileHelper_Assets.assets = this.Assets;
+
+            // Set our view from the "main" layout resource
+            SetContentView (Resource.Layout.Main);
 
             /*Pega um ponteiro da interface*/
             Button BotaoProxTela = FindViewById<Button>(Resource.Id.botaoProximaTela);

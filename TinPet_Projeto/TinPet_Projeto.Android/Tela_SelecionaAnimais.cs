@@ -13,6 +13,9 @@ using Android.Support.Design.Widget;
 using FFImageLoading.Views;
 using TinPet_Projeto.Droid.ImageHandler;
 using System.Threading.Tasks;
+using TinPet_Projeto.Database;
+using TinPet_Projeto.Models;
+using System.Collections.Generic;
 
 namespace TinPet_Projeto.Droid
 {
@@ -21,6 +24,9 @@ namespace TinPet_Projeto.Droid
     {
         DrawerLayout drawerLayout;
         NavigationView navigationView;
+
+        private List<Cachorro> Filtro;
+
 
         void carregaimagem()
         {
@@ -52,7 +58,26 @@ namespace TinPet_Projeto.Droid
                         });
                         x.Start();
                         */
+
+            /*nova Thread separada da UI*/
+            Task FiltrarDadosDB = new Task(
+                async () =>
+                {
+                    DataAccess DB = new DataAccess();
+                    //await DB.GetConnectionAsync();
+                    Filtro = DB.GetCachorros(TipoGenero.Feminino);
+                   // ImgAPI imgAPI = new ImgAPI();
+                    //imgAPI.CarregaImagemMemoria(ref CachorroAtual_IMG, Filtro[0].Imagem, false);
+
+                }
+                );
+
+
+
             navigationView.NavigationItemSelected += NavigationView_NavigationItemSelected;
+
+            FiltrarDadosDB.Start();
+
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)

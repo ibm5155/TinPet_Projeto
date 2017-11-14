@@ -9,6 +9,6 @@ namespace TinPet_Projeto.Models
 {
     public interface IDataBase
     {
-        SQLiteConnection GetConexao(string NomeDB);
+        SQLiteConnection GetConexaoLocal(string NomeDB);
     }
 }
