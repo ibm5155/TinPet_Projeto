@@ -3123,11 +3123,14 @@ namespace TinPet_Projeto.Droid
 			// aapt resource value: 0x7f0b009e
 			public const int BotaoSomar = 2131427486;
 			
-			// aapt resource value: 0x7f0b00e5
-			public const int Botao_Login = 2131427557;
+			// aapt resource value: 0x7f0b00e6
+			public const int Botao_Login = 2131427558;
 			
 			// aapt resource value: 0x7f0b0034
 			public const int CTRL = 2131427380;
+			
+			// aapt resource value: 0x7f0b00dd
+			public const int CachorroAtual_IMG = 2131427549;
 			
 			// aapt resource value: 0x7f0b00e0
 			public const int Cachorro_Distancia = 2131427552;
@@ -3417,8 +3420,8 @@ namespace TinPet_Projeto.Droid
 			// aapt resource value: 0x7f0b0060
 			public const int image = 2131427424;
 			
-			// aapt resource value: 0x7f0b00dd
-			public const int imageView1 = 2131427549;
+			// aapt resource value: 0x7f0b00e5
+			public const int imageView1 = 2131427557;
 			
 			// aapt resource value: 0x7f0b00c8
 			public const int info = 2131427528;
@@ -3447,14 +3450,14 @@ namespace TinPet_Projeto.Droid
 			// aapt resource value: 0x7f0b0062
 			public const int list_item = 2131427426;
 			
-			// aapt resource value: 0x7f0b00e8
-			public const int masked = 2131427560;
+			// aapt resource value: 0x7f0b00e9
+			public const int masked = 2131427561;
 			
 			// aapt resource value: 0x7f0b00c1
 			public const int media_actions = 2131427521;
 			
-			// aapt resource value: 0x7f0b00e6
-			public const int message = 2131427558;
+			// aapt resource value: 0x7f0b00e7
+			public const int message = 2131427559;
 			
 			// aapt resource value: 0x7f0b0032
 			public const int middle = 2131427378;
@@ -3540,17 +3543,17 @@ namespace TinPet_Projeto.Droid
 			// aapt resource value: 0x7f0b0028
 			public const int multiply = 2131427368;
 			
-			// aapt resource value: 0x7f0b00eb
-			public const int nav_buscapets = 2131427563;
-			
 			// aapt resource value: 0x7f0b00ec
-			public const int nav_chat = 2131427564;
+			public const int nav_buscapets = 2131427564;
+			
+			// aapt resource value: 0x7f0b00ed
+			public const int nav_chat = 2131427565;
+			
+			// aapt resource value: 0x7f0b00eb
+			public const int nav_filtrarbusca = 2131427563;
 			
 			// aapt resource value: 0x7f0b00ea
-			public const int nav_filtrarbusca = 2131427562;
-			
-			// aapt resource value: 0x7f0b00e9
-			public const int nav_meuspets = 2131427561;
+			public const int nav_meuspets = 2131427562;
 			
 			// aapt resource value: 0x7f0b00d0
 			public const int nav_view = 2131427536;
@@ -3813,8 +3816,8 @@ namespace TinPet_Projeto.Droid
 			// aapt resource value: 0x7f0b0016
 			public const int view_offset_helper = 2131427350;
 			
-			// aapt resource value: 0x7f0b00e7
-			public const int visible = 2131427559;
+			// aapt resource value: 0x7f0b00e8
+			public const int visible = 2131427560;
 			
 			// aapt resource value: 0x7f0b00b3
 			public const int volume_item_container = 2131427507;

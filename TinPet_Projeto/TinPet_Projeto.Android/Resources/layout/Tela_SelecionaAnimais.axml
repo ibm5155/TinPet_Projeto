@@ -36,12 +36,12 @@
                 android:layout_marginRight="30.0dp"
                 android:layout_marginLeft="30.0dp"
                 android:background="#818181">
-                <ImageView
+                <FFImageLoading.Views.ImageViewAsync
                     android:src="@drawable/loading"
-                    android:id="@+id/imageView1"
                     android:layout_marginRight="5.0dp"
                     android:layout_marginLeft="5.0dp"
-                    android:layout_marginTop="5.5dp" />
+                    android:layout_marginTop="5.5dp"
+                    android:id="@+id/CachorroAtual_IMG" />
             <!--Nome-->
                 <GridLayout
                     android:orientation="horizontal"

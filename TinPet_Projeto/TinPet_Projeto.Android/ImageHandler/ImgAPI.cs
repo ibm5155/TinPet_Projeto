@@ -13,6 +13,8 @@ using System.Threading;
 using FFImageLoading;
 using Android.Media;
 using FFImageLoading.Views;
+using System.Threading.Tasks;
+using System.IO;
 
 namespace TinPet_Projeto.Droid.ImageHandler
 {
@@ -95,5 +97,45 @@ namespace TinPet_Projeto.Droid.ImageHandler
                     .PreloadAsync();
             }
         }
+
+        public void CarregaImagemMemoria(ref ImageViewAsync Destino, byte[] ImagemEmBytes, bool MostraErro)
+        {
+            Finalizou = false;
+            Carregando = true;
+            Falha = false;
+
+
+            ImageService.Instance.LoadStream( (token) => { return GetStreamDeBytes(token, ImagemEmBytes); })
+            .WithPriority(FFImageLoading.Work.LoadingPriority.High)
+            .DownSample(300, 300)
+            .Error(exception =>
+            {
+                Finalizou = true;
+                Falha = true;
+                if (MostraErro == true)
+                {
+                    //new MessageDialog("Ocorreu um erro ao carregar a imagem").ShowAsync();
+                }
+            })
+            .Finish(workScheduled =>
+            {
+                Finalizou = true;
+            })
+            .IntoAsync(Destino);
+
+        }
+
+        public Task<System.IO.Stream> GetStreamDeBytes(CancellationToken ct, byte[] ImagemEmBytes)
+        {
+
+            //Since we need to return a Task<Stream> we will use a TaskCompletionSource>
+            TaskCompletionSource<System.IO.Stream> tcs = new TaskCompletionSource<System.IO.Stream>();
+
+            tcs.TrySetResult(new MemoryStream(ImagemEmBytes));
+
+            return tcs.Task;
+
+        }
+
     }
 }

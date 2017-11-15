@@ -25,14 +25,20 @@ namespace TinPet_Projeto.Droid
         DrawerLayout drawerLayout;
         NavigationView navigationView;
 
+        private Android.Support.V7.Widget.AppCompatImageButton botao_dislike;
+        private Android.Support.V7.Widget.AppCompatImageButton botao_like;
+        private TextView Cachorro_Nome;
+        private TextView Cachorro_Raca;
+        private TextView Idade;
+        private ImageViewAsync CachorroAtual_IMG;
+
         private List<Cachorro> Filtro;
 
+        private int CachorroAtual = 0;
+        private bool CachorroAtualCarregado = true;
+        private ImgAPI imgAPI = new ImgAPI();
 
-        void carregaimagem()
-        {
-
-
-        }
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -49,30 +55,41 @@ namespace TinPet_Projeto.Droid
             drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
 
-            /*            carregaimagem();
-                        ImageViewAsync Tela = FindViewById<ImageViewAsync>(Resource.Id.Meudogepng);
-
-                        x = new Task(()=> {
-                            ImgAPI cachorroimg = new ImgAPI();
-                            cachorroimg.CarregaImagemURL("https://i.imgur.com/hZ3AlAn.jpg", "loading.png", "", ref Tela, false);
-                        });
-                        x.Start();
-                        */
+            Cachorro_Nome = FindViewById<TextView>(Resource.Id.Cachorro_Nome);
+            Cachorro_Raca = FindViewById<TextView>(Resource.Id.Cachorro_Raca);
+            Idade = FindViewById<TextView>(Resource.Id.Cachorro_Idade);
+            CachorroAtual_IMG = FindViewById< ImageViewAsync>(Resource.Id.CachorroAtual_IMG);
 
             /*nova Thread separada da UI*/
             Task FiltrarDadosDB = new Task(
                 async () =>
                 {
                     DataAccess DB = new DataAccess();
-                    //await DB.GetConnectionAsync();
                     Filtro = DB.GetCachorros(TipoGenero.Feminino);
-                   // ImgAPI imgAPI = new ImgAPI();
-                    //imgAPI.CarregaImagemMemoria(ref CachorroAtual_IMG, Filtro[0].Imagem, false);
-
+                    imgAPI = new ImgAPI();
+                    CarregaProximo();
                 }
                 );
 
+            #region botão like dislike
+            botao_dislike = FindViewById<Android.Support.V7.Widget.AppCompatImageButton>(Resource.Id.botao_dislike);
+            botao_dislike.Click += delegate
+            {
+                if (Filtro.Count != 0)
+                {
+                    CarregaProximo();
+                }
+            };
 
+            botao_like = FindViewById<Android.Support.V7.Widget.AppCompatImageButton>(Resource.Id.botao_like);
+            botao_like.Click += delegate
+            {
+                if (Filtro.Count != 0)
+                {
+                    CarregaProximo();
+                }
+            };
+            #endregion
 
             navigationView.NavigationItemSelected += NavigationView_NavigationItemSelected;
 
@@ -100,6 +117,29 @@ namespace TinPet_Projeto.Droid
                     break;
             }
         }
+
+        private void CarregaProximo()
+        {
+            lock (Filtro)
+            {
+                CachorroAtualCarregado = false;
+                CachorroAtual++;
+                if (CachorroAtual == Filtro.Count)
+                {
+                    CachorroAtual = 0;
+                }
+
+                imgAPI.CarregaImagemMemoria(ref CachorroAtual_IMG, Filtro[CachorroAtual].Imagem, false);
+                RunOnUiThread(() =>
+                {
+                    Cachorro_Nome.Text = Filtro[CachorroAtual].Nome;
+                    Cachorro_Raca.Text = Filtro[CachorroAtual].Raca.ToString();
+                    Idade.Text = "10";
+                });
+                CachorroAtualCarregado = true;
+            }
+        }
+
 
     }
 }

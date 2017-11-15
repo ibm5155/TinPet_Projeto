@@ -43,7 +43,6 @@ namespace TinPet_Projeto.UWP.UI
                 ()=>
                 {
                     DataAccess DB = new DataAccess();
-                    //await DB.GetConnectionAsync();
                     Filtro = DB.GetCachorros(TipoGenero.Feminino);
                     CarregaProximo();
             }
@@ -100,7 +99,8 @@ namespace TinPet_Projeto.UWP.UI
                     CachorroAtual = 0;
                 }
 
-                imgAPI.CarregaImagemMemoria(ref CachorroAtual_IMG, Filtro[CachorroAtual].Imagem, false);
+//                imgAPI.CarregaImagemMemoria(ref CachorroAtual_IMG, Filtro[CachorroAtual].Imagem, false);
+                imgAPI.CarregaImagemURL("https://i.imgur.com/hZ3AlAn.jpg", "", "", ref CachorroAtual_IMG , false);
                 Cachorro_Nome.Text = Filtro[CachorroAtual].Nome;
                 Cachorro_Raca.Text = Filtro[CachorroAtual].Raca.ToString();
                 Idade.Text = "10";
