@@ -82,7 +82,8 @@
                         android:orientation="horizontal"
                         android:minWidth="25dp"
                         android:minHeight="25dp"
-                        android:background="#01FFFF">
+                        android:background="@drawable/retangulo_redondo">
+                    <!--#01FFFF"-->
                         <TextView
                             android:text="Data"
                             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -99,7 +100,7 @@
                         android:layout_gravity="right"
                         android:minWidth="25dp"
                         android:minHeight="25dp"
-                        android:background="#01FFFF">
+                        android:background="@drawable/retangulo_redondo">
                         <TextView
                             android:text="Data"
                             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -118,10 +119,24 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:minWidth="25dp"
-                android:minHeight="25dp">
-                <TextView
-                    android:text="Like Dislike..."
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:minHeight="25dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="50.0dp">
+                <ImageButton
+                    android:src="@drawable/x"
+                    android:id="@+id/botao_dislike"
+                    android:layout_height="50.0dp"
+                    android:layout_width="50.0dp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/botao_circular" />
+                <ImageButton
+                    android:src="@drawable/coracao"
+                    android:id="@+id/botao_like"
+                    android:layout_height="50.0dp"
+                    android:layout_width="50.0dp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/botao_circular"
+                    android:layout_marginLeft="50.0dp" />
             </GridLayout>
         </LinearLayout>
         <android.support.design.widget.NavigationView
