@@ -47,15 +47,11 @@ namespace TinPet_Projeto.Droid
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView = global::TinPet_Projeto.Droid.Resource.Styleable.MvxListView;
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::TinPet_Projeto.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxItemTemplate = global::TinPet_Projeto.Droid.Resource.Styleable.MvxListView_MvxItemTemplate;
-			global::PCLStorage.Resource.String.ApplicationName = global::TinPet_Projeto.Droid.Resource.String.ApplicationName;
-			global::PCLStorage.Resource.String.Hello = global::TinPet_Projeto.Droid.Resource.String.Hello;
 			global::Xamarin.Auth.Resource.Animation.slide_in_right = global::TinPet_Projeto.Droid.Resource.Animation.slide_in_right;
 			global::Xamarin.Auth.Resource.Animation.slide_out_left = global::TinPet_Projeto.Droid.Resource.Animation.slide_out_left;
 			global::Xamarin.Auth.Resource.Drawable.ic_arrow_back = global::TinPet_Projeto.Droid.Resource.Drawable.ic_arrow_back;
 			global::Xamarin.Auth.Resource.Id.webview = global::TinPet_Projeto.Droid.Resource.Id.webview;
 			global::Xamarin.Auth.Resource.Layout.activity_webview = global::TinPet_Projeto.Droid.Resource.Layout.activity_webview;
-			global::Xamarin.Auth.Resource.String.ApplicationName = global::TinPet_Projeto.Droid.Resource.String.ApplicationName;
-			global::Xamarin.Auth.Resource.String.Hello = global::TinPet_Projeto.Droid.Resource.String.Hello;
 			global::Xamarin.Auth.Resource.String.title_activity_webview = global::TinPet_Projeto.Droid.Resource.String.title_activity_webview;
 		}
 		
@@ -4160,12 +4156,6 @@ namespace TinPet_Projeto.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f0a0040
-			public const int ApplicationName = 2131361856;
-			
-			// aapt resource value: 0x7f0a003f
-			public const int Hello = 2131361855;
-			
 			// aapt resource value: 0x7f0a0016
 			public const int abc_action_bar_home_description = 2131361814;
 			
@@ -4259,8 +4249,8 @@ namespace TinPet_Projeto.Droid
 			// aapt resource value: 0x7f0a0028
 			public const int abc_toolbar_collapse_description = 2131361832;
 			
-			// aapt resource value: 0x7f0a0042
-			public const int app_name = 2131361858;
+			// aapt resource value: 0x7f0a0040
+			public const int app_name = 2131361856;
 			
 			// aapt resource value: 0x7f0a0037
 			public const int appbar_scrolling_view_behavior = 2131361847;
@@ -4271,8 +4261,8 @@ namespace TinPet_Projeto.Droid
 			// aapt resource value: 0x7f0a0039
 			public const int character_counter_pattern = 2131361849;
 			
-			// aapt resource value: 0x7f0a0041
-			public const int hello = 2131361857;
+			// aapt resource value: 0x7f0a003f
+			public const int hello = 2131361855;
 			
 			// aapt resource value: 0x7f0a0001
 			public const int mr_button_content_description = 2131361793;

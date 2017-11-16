@@ -35,5 +35,6 @@ namespace TinPet_Projeto.Models
         public double Regiao_Longitude { get; set; }
         public byte[] Imagem { get; set; } /*Arquivo Imagem*/
         public Raca Raca { get; set; }
+        public int AnoNascimento { get; set; }
     }
 }
