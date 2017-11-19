@@ -1,0 +1,7 @@
+﻿-checar se primeiro acesso
+-Pagina de primeiro inicio para cadastrar um cachorro
+-Implantar filtros a busca
+-Editar dados cadastrados
+-Marcar cachorros com o "like"
+-Sockets
+-Chat
