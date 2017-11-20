@@ -33,8 +33,10 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="APIS\GoogleMaps.cs" />
     <Compile Include="APIS\IFacebook.cs" />
     <Compile Include="APIS\Secret\FacebookID.cs" />
+    <Compile Include="APIS\Secret\GoogleMapID.cs" />
     <Compile Include="Database\DataAccess.cs" />
     <Compile Include="Globais.cs" />
     <Compile Include="LogicaSomar.cs" />
@@ -42,6 +44,7 @@
     <Compile Include="Models\DadosPessoais.cs" />
     <Compile Include="Models\Downloader.cs" />
     <Compile Include="Models\FiltroUsuario.cs" />
+    <Compile Include="Models\GeoCode.cs" />
     <Compile Include="Models\GeradorID.cs" />
     <Compile Include="Models\IDataBase.cs" />
     <Compile Include="MyClass.cs" />
@@ -83,6 +86,9 @@
     </Reference>
     <Reference Include="SQLitePCLRaw.core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SQLitePCLRaw.core.1.1.8\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v1.0\System.Net.Http.dll</HintPath>
     </Reference>
     <Reference Include="Validation, Version=2.4.0.0, Culture=neutral, PublicKeyToken=2fc06f0d701809a7, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Validation.2.4.18\lib\portable-net45+win8+wp8+wpa81\Validation.dll</HintPath>

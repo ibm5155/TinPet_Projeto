@@ -1,5 +1,9 @@
 ﻿-checar se primeiro acesso
 -Pagina de primeiro inicio para cadastrar um cachorro
+{
+-Mockup: feito
+-implementação:
+}
 -Implantar filtros a busca
 -Editar dados cadastrados
 -Marcar cachorros com o "like"
