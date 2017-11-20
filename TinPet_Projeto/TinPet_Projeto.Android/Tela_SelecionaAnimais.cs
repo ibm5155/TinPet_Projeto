@@ -25,8 +25,8 @@ namespace TinPet_Projeto.Droid
         DrawerLayout drawerLayout;
         NavigationView navigationView;
 
-        private Android.Support.V7.Widget.AppCompatImageButton botao_dislike;
-        private Android.Support.V7.Widget.AppCompatImageButton botao_like;
+        private Android.Support.Design.Widget.FloatingActionButton botao_dislike;
+        private Android.Support.Design.Widget.FloatingActionButton botao_like;
         private TextView Cachorro_Nome;
         private TextView Cachorro_Raca;
         private TextView Idade;
@@ -42,6 +42,7 @@ namespace TinPet_Projeto.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            AppCompatDelegate.CompatVectorFromResourcesEnabled = true;
 
             // Set our view from the "main" layout resource  
             SetContentView(Resource.Layout.Tela_SelecionaAnimais);
@@ -72,7 +73,7 @@ namespace TinPet_Projeto.Droid
                 );
 
             #region botão like dislike
-            botao_dislike = FindViewById<Android.Support.V7.Widget.AppCompatImageButton>(Resource.Id.botao_dislike);
+            botao_dislike = FindViewById<Android.Support.Design.Widget.FloatingActionButton>(Resource.Id.botao_dislike);
             botao_dislike.Click += delegate
             {
                 if (Filtro.Count != 0)
@@ -81,7 +82,7 @@ namespace TinPet_Projeto.Droid
                 }
             };
 
-            botao_like = FindViewById<Android.Support.V7.Widget.AppCompatImageButton>(Resource.Id.botao_like);
+            botao_like = FindViewById<Android.Support.Design.Widget.FloatingActionButton>(Resource.Id.botao_like);
             botao_like.Click += delegate
             {
                 if (Filtro.Count != 0)
