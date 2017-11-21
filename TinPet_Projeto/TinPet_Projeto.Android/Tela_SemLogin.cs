@@ -15,11 +15,12 @@ using TinPet_Projeto;
 using TinPet_Projeto.Droid.APIS;
 using System.Threading.Tasks;
 using TinPet_Projeto.Database;
+using Android.Support.V7.App;
 
 namespace TinPet_Projeto.Droid
 {
-    [Activity(Label = "Tela_SemLogin")]
-    public class Tela_SemLogin : Activity
+    [Activity(Label = "TelaSemLogin", Theme = "@style/Theme.DesignDemo", MainLauncher = true)]
+    public class Tela_SemLogin : AppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {

@@ -51,7 +51,9 @@
                     android:layout_marginRight="5.0dp"
                     android:layout_marginLeft="5.0dp"
                     android:layout_marginTop="5.5dp"
-                    android:id="@+id/CachorroAtual_IMG" />
+                    android:id="@+id/CachorroAtual_IMG"
+                    android:layout_height="300.0dp"
+                    android:layout_width="300.0dp" />
             <!--Nome-->
                 <GridLayout
                     android:orientation="horizontal"
@@ -134,6 +136,9 @@
                 android:layout_marginTop="50.0dp">
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/botao_dislike"
+                    android:paddingStart="10.0dp"
+                    android:paddingEnd="10.0dp"
+                    android:paddingLeft="10.0dp"
                     android:layout_height="50.0dp"
                     android:layout_width="50.0dp"
                     android:layout_gravity="bottom|end"
@@ -143,7 +148,8 @@
                     android:layout_height="50.0dp"
                     android:layout_width="50.0dp"
                     android:layout_gravity="bottom|end"
-                    android:src="@drawable/coracao" />
+                    android:src="@drawable/coracao"
+                    android:layout_marginLeft="50.0dp" />
             </GridLayout>
         </LinearLayout>
         <android.support.design.widget.NavigationView
