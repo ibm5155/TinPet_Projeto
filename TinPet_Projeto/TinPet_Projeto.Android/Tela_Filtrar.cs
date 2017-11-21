@@ -30,6 +30,8 @@ namespace TinPet_Projeto.Droid
 
             // Set our view from the "main" layout resource  
             SetContentView(Resource.Layout.Tela_Filtrar);
+            AppCompatDelegate.CompatVectorFromResourcesEnabled = true;
+
 
             var toolbar = FindViewById<V7Toolbar>(Resource.Id.toolbar_Tela_Filtrar);
             SetSupportActionBar(toolbar);
@@ -37,8 +39,9 @@ namespace TinPet_Projeto.Droid
             SupportActionBar.SetDisplayShowTitleEnabled(false);
             SupportActionBar.SetHomeButtonEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_menu);
-            drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+            drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout_Tela_Filtrar);
             navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
+            navigationView.NavigationItemSelected += NavigationView_NavigationItemSelected;
 
         }
 
@@ -52,6 +55,17 @@ namespace TinPet_Projeto.Droid
             }
             return base.OnOptionsItemSelected(item);
         }
+
+        void NavigationView_NavigationItemSelected(object sender, NavigationView.NavigationItemSelectedEventArgs e)
+        {
+            switch (e.MenuItem.ItemId)
+            {
+                case (Resource.Id.nav_buscapets):
+                    StartActivity(typeof(Tela_Filtrar));
+                    break;
+            }
+        }
+
 
     }
 }

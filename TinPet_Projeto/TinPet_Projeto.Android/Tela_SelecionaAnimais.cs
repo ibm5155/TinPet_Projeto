@@ -65,8 +65,7 @@ namespace TinPet_Projeto.Droid
             Task FiltrarDadosDB = new Task(
                 async () =>
                 {
-                    DataAccess DB = new DataAccess();
-                    Filtro = DB.GetCachorros(TipoGenero.Feminino);
+                    Filtro = Globais.BancoDeDados.GetCachorros(TipoGenero.Feminino);
                     imgAPI = new ImgAPI();
                     CarregaProximo();
                 }
