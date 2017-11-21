@@ -34,12 +34,15 @@ namespace TinPet_Projeto.UWP.UI
             };
             Botao_Escolher_Animais.Click += delegate
             {
+                ClearMap();
                 this.Frame.Navigate(typeof(UI.Tela_SelecionaAnimais));
             };
             Botao_Filtro.Click += delegate
             {
+                ClearMap();
                 this.Frame.Navigate(typeof(UI.Tela_Filtrar));
             };
+
 
             AddSpaceNeedleIcon();
 
@@ -55,6 +58,14 @@ namespace TinPet_Projeto.UWP.UI
             MapaCachorro.MapElements.Add(myPOI);
             MapaCachorro.Center = myPoint;
             MapaCachorro.ZoomLevel = 20;
+        }
+
+        void ClearMap()
+        {
+            MapaCachorro.MapElements.Clear();
+            MapaCachorro.Resources.Clear();
+            MapaCachorro = null;
+            GC.Collect();
         }
     }
 }

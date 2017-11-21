@@ -42,11 +42,10 @@ namespace TinPet_Projeto.UWP.UI
             Task FiltrarDadosDB = new Task(
                 ()=>
                 {
-                    DataAccess DB = new DataAccess();
-                    Filtro = DB.GetCachorros(TipoGenero.Feminino);
+                    Filtro = Globais.BancoDeDados.GetCachorros(TipoGenero.Feminino);
                     CarregaProximo();
-            }
-                );
+                }
+            );
 
 
             #region menu flyout comandos
@@ -99,11 +98,11 @@ namespace TinPet_Projeto.UWP.UI
                     CachorroAtual = 0;
                 }
 
-//                imgAPI.CarregaImagemMemoria(ref CachorroAtual_IMG, Filtro[CachorroAtual].Imagem, false);
-                imgAPI.CarregaImagemURL("https://i.imgur.com/hZ3AlAn.jpg", "", "", ref CachorroAtual_IMG , false);
+                imgAPI.CarregaImagemMemoria(ref CachorroAtual_IMG, Filtro[CachorroAtual].Imagem, false);
                 Cachorro_Nome.Text = Filtro[CachorroAtual].Nome;
                 Cachorro_Raca.Text = Filtro[CachorroAtual].Raca.ToString();
-                Idade.Text = "10";
+                Idade.Text = (/*Temporário*/2017 -  Filtro[CachorroAtual].AnoNascimento).ToString();
+#warning        Tratar futuras datas caso for continuar o aplicativo...
                 CachorroAtualCarregado = true;
             }
         }

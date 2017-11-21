@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.Foundation.Metadata;
+using TinPet_Projeto.Database;
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -39,6 +40,12 @@ namespace TinPet_Projeto.UWP.UI
                 if (Usuario.Id != "")
                 {
                     //Temos um usuário válido
+
+                    //Inicia o banco de dados local
+                    Globais.BancoDeDados = new DataAccess();
+
+                    Usuario = null;
+
                     this.Frame.Navigate(typeof(UI.Tela_SelecionaAnimais));
                 }
             };
