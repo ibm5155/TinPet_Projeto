@@ -43,7 +43,7 @@ namespace TinPet_Projeto.UWP
              */
             MvxSimpleIoCContainer.Initialize();
             Mvx.RegisterSingleton<IDataBase>(new DataBase_UWP());
-
+            Mvx.RegisterSingleton<IPicturePicker>(new PicturePickerImplementation());
 
             this.Suspending += OnSuspending;
 

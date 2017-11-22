@@ -45,8 +45,11 @@ namespace TinPet_Projeto.UWP.UI
                     Globais.BancoDeDados = new DataAccess();
 
                     Usuario = null;
+                    //se usuário não tem login carregue a pagina para criar o cachorro dele
+                    this.Frame.Navigate(typeof(UI.Primeiro_Login));
+                    //caso contrário carregue a tela de filtros
 
-                    this.Frame.Navigate(typeof(UI.Tela_SelecionaAnimais));
+                   // this.Frame.Navigate(typeof(UI.Tela_SelecionaAnimais));
                 }
             };
         }

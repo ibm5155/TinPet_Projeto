@@ -10,7 +10,9 @@ namespace TinPet_Projeto.Models
     {
         public string IdDono;
         public int CachorroId;
+        public string CachorroNome;
         public TipoGenero CachorroGenero;
+        public Raca CachorroRaca;
         public double CachorroLatitude;
         public double CachorroLongitude;
         public byte[] Foto;//cachorro

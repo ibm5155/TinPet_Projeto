@@ -65,25 +65,33 @@ namespace TinPet_Projeto.APIS
                 {
                     //converte a requisição para string
                     var responseString = await Requisicao.Content.ReadAsStringAsync();
-                    //procura onde está a localização
-                    var Offset= responseString.IndexOf(FiltroLocalizacao) + FiltroLocalizacao.Length;
-                    while (responseString[Offset] != '"') Offset++; //pula os espaços até chegar em "Lat"
-                    while (responseString[Offset] != ':') Offset++; //pula a string até chegar em ':'
-                    Offset+=2; //aponta para o inicio do número da latitude
-                    int StartOffset = Offset;
-                    while (responseString[Offset] != ',') Offset++; //acha o fim da latitude
-                    Offset--;
+                    if (responseString.Length == 52) /*52 == "{\n   \"results\" : [],\n   \"status\" : \"ZERO_RESULTS\"\n}\n"*/
+                    {
+                        //Obteve retorno da API mas
+                        //Endereço não encontrado
+                    }
+                    else
+                    {
+                        //procura onde está a localização
+                        var Offset = responseString.IndexOf(FiltroLocalizacao) + FiltroLocalizacao.Length;
+                        while (responseString[Offset] != '"') Offset++; //pula os espaços até chegar em "Lat"
+                        while (responseString[Offset] != ':') Offset++; //pula a string até chegar em ':'
+                        Offset += 2; //aponta para o inicio do número da latitude
+                        int StartOffset = Offset;
+                        while (responseString[Offset] != ',') Offset++; //acha o fim da latitude
+                        Offset--;
 
-                    var Lat = double.Parse(responseString.Substring(StartOffset,Offset-StartOffset));//faz uma copia do pedaço da string e depois converte para double
-                    while (responseString[Offset] != '"') Offset++; //pula os espaços até chegar em "Lng"
-                    while (responseString[Offset] != ':') Offset++; //pula a string até chegar em ':'
-                    Offset += 2; //aponta para o inicio do número da Longitude
-                    StartOffset = Offset;
-                    while (responseString[Offset] != ' ' && responseString[Offset] != '\n') Offset++; //acha o fim da longitude
-                    Offset--;
-                    var Lon = double.Parse(responseString.Substring(StartOffset, Offset - StartOffset));//faz uma copia do pedaço da string e depois converte para double
-                    GC.Latitude = Lat;
-                    GC.Longitude = Lon;
+                        var Lat = double.Parse(responseString.Substring(StartOffset, Offset - StartOffset).Replace('.',','));//faz uma copia do pedaço da string e depois converte para double
+                        while (responseString[Offset] != '"') Offset++; //pula os espaços até chegar em "Lng"
+                        while (responseString[Offset] != ':') Offset++; //pula a string até chegar em ':'
+                        Offset += 2; //aponta para o inicio do número da Longitude
+                        StartOffset = Offset;
+                        while (responseString[Offset] != ' ' && responseString[Offset] != '\n') Offset++; //acha o fim da longitude
+                        Offset--;
+                        var Lon = double.Parse(responseString.Substring(StartOffset, Offset - StartOffset).Replace('.', ','));//faz uma copia do pedaço da string e depois converte para double
+                        GC.Latitude = Lat;
+                        GC.Longitude = Lon;
+                    }
                 }
             }
 

@@ -11,19 +11,21 @@ namespace TinPet_Projeto.Models
 
     public enum Raca
     {
-        NaoDefinida,
-        ViraLata,
-        HuskySiberiano,
-        ShihTzu,
-        ChowChow,
-        GoldenRetriever,
+        Nao_Definida,
+        Vira_Lata,
+        Husky_Siberiano,
+        Shih_Tzu,
+        Chow_Chow,
+        Golden_Retriever,
         Dalmatas,
         Beagle,
-        SaoBernardo,
+        Sao_Bernardo,
         Samoieda,
-        LuludaPomerania,
+        Luluda_Pomerania,
         Akita
     }
+
+
 
     [Table("Cachorro")]
     public class Cachorro
@@ -36,5 +38,10 @@ namespace TinPet_Projeto.Models
         public byte[] Imagem { get; set; } /*Arquivo Imagem*/
         public Raca Raca { get; set; }
         public int AnoNascimento { get; set; }
+
+        public static string GetRacaNome(Raca raca)
+        {
+            return raca.ToString().Replace('_', ' ');
+        }
     }
 }

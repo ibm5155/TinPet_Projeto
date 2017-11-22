@@ -55,7 +55,7 @@
             <Button Name="Botao_Menu" HorizontalContentAlignment="Left" Background="{x:Null}"  FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Width="50"  FontSize="48" />
         </Grid>
         <Grid Grid.Row="1">
-            <Image Source="ms-appx:///Assets/loading.png" NineGrid="0"/>
+            <Image x:Name="Cachorro_imagem" Source="ms-appx:///Assets/loading.png" NineGrid="0"/>
         </Grid>
 
         <Border Grid.Row="2" BorderBrush="Azure" BorderThickness="18"/>
@@ -73,7 +73,7 @@
             <Border BorderBrush="Beige" BorderThickness="60"/>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <TextBlock Text="Raça:" FontSize="20"/>
-                <TextBlock Text="Douglas Junior" FontSize="20"/>
+                <TextBlock x:Name="Raca_tela"  Text="Douglas Junior" FontSize="20"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="4">
