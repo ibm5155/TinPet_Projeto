@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_Tela_MeuPet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="#33B86C"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_scrollFlags="scroll|enterAlways" />
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout_Tela_Filtrar"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent">
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="100.0dp"
+            android:layout_height="match_parent"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <FFImageLoading.Views.ImageViewAsync
+                    android:src="@drawable/loading"
+                    android:layout_width="200dp"
+                    android:layout_height="200.0dp"
+                    android:id="@+id/Tela_MeuPet_Imagem"
+                    android:layout_gravity="fill"
+                    android:layout_marginLeft="40.0dp"
+                    android:layout_marginTop="20.0dp" />
+            <!--Nome e Idade-->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10.0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="Idade: "
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="{Ano}"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/Tela_MeuPet_Ano" />
+                    <TextView
+                        android:text="Nome: "
+                        android:layout_marginLeft="20.0dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="{Nome}"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/Tela_MeuPet_Nome" />
+                </LinearLayout>
+            <!--Genero e Raça-->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10.0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:src="@drawable/loading"
+                        android:layout_width="100.0dp"
+                        android:layout_height="100.0dp"
+                        android:id="@+id/Tela_MeuPet_Genero"
+                        android:background="#FAFAF0"
+                        android:layout_gravity="fill"
+                        android:layout_marginLeft="20.0dp" />
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="230.0dp"
+                        android:layout_height="100.0dp"
+                        android:background="#FAFAF0"
+                        android:layout_marginLeft="20.0dp"
+                        android:layout_marginRight="5.0dp">
+                        <TextView
+                            android:text="Raça: "
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textColor="#000000"
+                            android:gravity="center_vertical" />
+                        <TextView
+                            android:text="{Raca}"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:id="@+id/Tela_MeuPet_Raca"
+                            android:textColor="#000000"
+                            android:gravity="center_vertical" />
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView
+                    android:text="Moradia do Cachorro"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView1"
+                    android:layout_marginTop="10.0dp" />
+            </LinearLayout>
+        </RelativeLayout>
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_height="match_parent"
+            android:layout_width="200dp"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:menu="@menu/menu" />
+    </android.support.v4.widget.DrawerLayout>
+</LinearLayout>

@@ -115,6 +115,9 @@ namespace TinPet_Projeto.Droid
                 case (Resource.Id.nav_filtrarbusca):
                     StartActivity(typeof(Tela_Filtrar));
                     break;
+                case (Resource.Id.nav_meuspets):
+                    StartActivity(typeof(Tela_MeuPet));
+                    break;
             }
         }
 

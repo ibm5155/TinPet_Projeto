@@ -61,8 +61,12 @@ namespace TinPet_Projeto.Droid
             switch (e.MenuItem.ItemId)
             {
                 case (Resource.Id.nav_buscapets):
-                    StartActivity(typeof(Tela_Filtrar));
+                    StartActivity(typeof(Tela_SelecionaAnimais));
                     break;
+                case (Resource.Id.nav_meuspets):
+                    StartActivity(typeof(Tela_MeuPet));
+                    break;
+
             }
         }
 
