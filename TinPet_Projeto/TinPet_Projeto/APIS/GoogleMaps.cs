@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using TinPet_Projeto.APIS.Secret;
 using System.Net.Http;
 using TinPet_Projeto.Models;
+using System.IO;
+
 namespace TinPet_Projeto.APIS
 {
 
@@ -17,6 +19,8 @@ namespace TinPet_Projeto.APIS
     {
         /**/
         string URLReq = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+        string URLReq2 = "https://maps.googleapis.com/maps/api/staticmap?size=600x400&zoom=18&maptype=roadmap\\&markers=size:mid%7Ccolor:red%7Clabel:S%7C";
+
         private string FiltroLocalizacao;
 
         public GoogleMaps()
@@ -39,9 +43,9 @@ namespace TinPet_Projeto.APIS
             string EnderecoFiltrado;
             #region Filtra Endereço
             EnderecoFiltrado = Endereco.Replace(' ', '+');
-            for (int i=0;i<EnderecoFiltrado.Length;i++)
+            for (int i = 0; i < EnderecoFiltrado.Length; i++)
             {
-                if(EnderecoFiltrado[i] == ',' || EnderecoFiltrado[i] == '.')
+                if (EnderecoFiltrado[i] == ',' || EnderecoFiltrado[i] == '.')
                 {
                     EnderecoFiltrado = EnderecoFiltrado.Remove(i, 1);
                     i--;
@@ -80,15 +84,14 @@ namespace TinPet_Projeto.APIS
                         int StartOffset = Offset;
                         while (responseString[Offset] != ',') Offset++; //acha o fim da latitude
                         Offset--;
-
-                        var Lat = double.Parse(responseString.Substring(StartOffset, Offset - StartOffset).Replace('.',','));//faz uma copia do pedaço da string e depois converte para double
+                        var Lat = double.Parse(responseString.Substring(StartOffset, Offset - StartOffset).Replace('.', '.'));//faz uma copia do pedaço da string e depois converte para double
                         while (responseString[Offset] != '"') Offset++; //pula os espaços até chegar em "Lng"
                         while (responseString[Offset] != ':') Offset++; //pula a string até chegar em ':'
                         Offset += 2; //aponta para o inicio do número da Longitude
                         StartOffset = Offset;
                         while (responseString[Offset] != ' ' && responseString[Offset] != '\n') Offset++; //acha o fim da longitude
                         Offset--;
-                        var Lon = double.Parse(responseString.Substring(StartOffset, Offset - StartOffset).Replace('.', ','));//faz uma copia do pedaço da string e depois converte para double
+                        var Lon = double.Parse(responseString.Substring(StartOffset, Offset - StartOffset).Replace('.', '.'));//faz uma copia do pedaço da string e depois converte para double
                         GC.Latitude = Lat;
                         GC.Longitude = Lon;
                     }
@@ -98,6 +101,33 @@ namespace TinPet_Projeto.APIS
 
             #endregion
             return GC;
+        }
+
+        public async Task<Stream> GetImagemMapa(double Latitude, double Longitude)
+        {
+            Stream Retorno = null;
+            var Header = URLReq2 + Latitude.ToString() + "," + Longitude.ToString() + "&Key=" + APIS.Secret.GoogleMapID.Tinpet_GmapID;
+            #region     ENVIA A MENSAGEM PARA O SERVIDOR DO GOOGLE
+            HttpClient client = new HttpClient();
+            HttpResponseMessage Requisicao;
+
+            Requisicao = await client.GetAsync(new Uri(Header));
+            #endregion
+            #region Get Imagem
+            if (!Requisicao.IsSuccessStatusCode)
+            {
+                throw new Exception("We could not send the message: " + Requisicao.StatusCode.ToString());
+            }
+            else
+            {
+                if (Requisicao.Content != null)
+                {
+                    //recebe retorno
+                    Retorno = await Requisicao.Content.ReadAsStreamAsync();
+                }
+            }
+#endregion
+            return Retorno;
         }
     }
 }

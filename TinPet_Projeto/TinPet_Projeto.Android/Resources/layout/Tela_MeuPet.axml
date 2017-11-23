@@ -33,13 +33,12 @@
                     android:layout_width="200dp"
                     android:layout_height="200.0dp"
                     android:id="@+id/Tela_MeuPet_Imagem"
-                    android:layout_gravity="fill"
-                    android:layout_marginLeft="40.0dp"
-                    android:layout_marginTop="20.0dp" />
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5.0dp" />
             <!--Nome e Idade-->
                 <LinearLayout
                     android:orientation="horizontal"
-                    android:layout_marginTop="10.0dp"
+                    android:layout_marginTop="5.0dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <TextView
@@ -69,7 +68,7 @@
             <!--Genero e Raça-->
                 <LinearLayout
                     android:orientation="horizontal"
-                    android:layout_marginTop="10.0dp"
+                    android:layout_marginTop="5.0dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <ImageView
@@ -108,9 +107,16 @@
                     android:text="Moradia do Cachorro"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="20.0dp"
                     android:id="@+id/textView1"
-                    android:layout_marginTop="10.0dp" />
+                    android:layout_marginTop="5.0dp" />
+                <FFImageLoading.Views.ImageViewAsync
+                    android:src="@drawable/loading"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/Tela_MeuPet_Mapa"
+                    android:layout_gravity="fill"
+                    android:scaleType="fitXY" />
             </LinearLayout>
         </RelativeLayout>
         <android.support.design.widget.NavigationView

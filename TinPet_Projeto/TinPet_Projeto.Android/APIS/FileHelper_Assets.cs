@@ -20,6 +20,6 @@ namespace TinPet_Projeto.Droid.APIS
         public static AssetManager assets;
         public static Activity Instance { get; set; }
         public static TaskCompletionSource<Stream> PickImageTaskCompletionSource { set; get; }
-
+        public static Stream Temp_ImagemMapa_MeuCachorro = null;
     }
 }

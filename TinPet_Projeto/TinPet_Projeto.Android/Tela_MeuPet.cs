@@ -17,6 +17,9 @@ using TinPet_Projeto.APIS;
 using TinPet_Projeto.Models;
 using V7Toolbar = Android.Support.V7.Widget.Toolbar;
 using FFImageLoading.Views;
+using System.Threading.Tasks;
+using TinPet_Projeto.Droid.APIS;
+using System.IO;
 
 namespace TinPet_Projeto.Droid
 {
@@ -54,11 +57,41 @@ namespace TinPet_Projeto.Droid
             var Pnt_Idade = FindViewById<TextView>(Resource.Id.Tela_MeuPet_Ano);
             var Pnt_Raca = FindViewById<TextView>(Resource.Id.Tela_MeuPet_Raca);
             var Pnt_Foto = FindViewById<ImageViewAsync>(Resource.Id.Tela_MeuPet_Imagem);
+            var Pnt_Mapa = FindViewById<ImageViewAsync>(Resource.Id.Tela_MeuPet_Mapa);
 
             Pnt_Nome.Text = Globais.MeusDados.CachorroNome;
             Pnt_Idade.Text = (DateTime.Now.Year - Globais.MeusDados.CachorroAnoNascimento).ToString();
             Pnt_Raca.Text = Cachorro.GetRacaNome(Globais.MeusDados.CachorroRaca);
             API_Imagem.CarregaImagemMemoria(ref Pnt_Foto, Globais.MeusDados.Foto, false);
+
+
+            new Task(async ()=>
+            {
+                ImgAPI API_Imagem2 = new ImgAPI();
+                if (FileHelper_Assets.Temp_ImagemMapa_MeuCachorro == null)
+                {
+                    //carrega imagem
+                    GoogleMaps Gmaps = new GoogleMaps();
+                    FileHelper_Assets.Temp_ImagemMapa_MeuCachorro = await Gmaps.GetImagemMapa(Globais.MeusDados.CachorroLatitude, Globais.MeusDados.CachorroLongitude);
+                }
+                byte[] resultado;
+                var memoryStream = new MemoryStream();
+                FileHelper_Assets.Temp_ImagemMapa_MeuCachorro.CopyTo(memoryStream);
+                resultado = memoryStream.ToArray();
+                API_Imagem2.CarregaImagemMemoria(ref Pnt_Mapa, resultado, false);
+            }
+                ).Start();
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    drawerLayout.OpenDrawer(Android.Support.V4.View.GravityCompat.Start);
+                    return true;
+            }
+            return base.OnOptionsItemSelected(item);
         }
 
         void NavigationView_NavigationItemSelected(object sender, NavigationView.NavigationItemSelectedEventArgs e)

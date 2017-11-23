@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace TinPet_Projeto.Droid
 {
-    [Activity(Label = "TelaFiltrar", Theme = "@style/Theme.DesignDemo", MainLauncher = true)]
+    [Activity(Label = "TelaFiltrar", Theme = "@style/Theme.DesignDemo", MainLauncher = false)]
     public class Tela_Filtrar : AppCompatActivity
     {
         DrawerLayout drawerLayout;
