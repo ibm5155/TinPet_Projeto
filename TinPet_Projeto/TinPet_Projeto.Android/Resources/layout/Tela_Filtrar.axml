@@ -42,14 +42,15 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView2" />
+                android:id="@+id/textView2"
+                android:paddingTop="10.0dp" />
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="150dp"
                 android:paddingLeft="20dp"
                 android:minWidth="25px"
-                android:minHeight="25px">
+                android:paddingTop="10.0dp">
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="80dp"
@@ -75,7 +76,8 @@
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:minHeight="25px"
-                    android:background="@drawable/borda_marrom">
+                    android:background="@drawable/borda_marrom"
+                    android:layout_marginLeft="30.0dp">
                     <EditText
                         android:inputType="numberDecimal"
                         android:layout_width="match_parent"
@@ -119,7 +121,8 @@
             <SeekBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/Slider_Distancia" />
+                android:id="@+id/Slider_Distancia"
+                android:max="100" />
         </LinearLayout>
         <android.support.design.widget.NavigationView
             android:id="@+id/nav_view"

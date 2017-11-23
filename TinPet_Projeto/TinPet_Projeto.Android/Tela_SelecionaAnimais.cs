@@ -129,6 +129,7 @@ namespace TinPet_Projeto.Droid
                 CachorroAtual++;
                 if (CachorroAtual == Filtro.Count)
                 {
+                    /*Informa que chegou ao final*/
                     CachorroAtual = 0;
                 }
 

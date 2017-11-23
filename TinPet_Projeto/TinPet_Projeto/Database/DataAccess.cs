@@ -9,6 +9,8 @@ using MvvmCross.Platform;
 using MvvmCross.Platform.IoC;
 using MvvmCross.Core.ViewModels;
 
+using TinPet_Projeto;
+
 namespace TinPet_Projeto.Database
 {
     public class DataAccess : MvxViewModel
@@ -29,16 +31,18 @@ namespace TinPet_Projeto.Database
         #region Pegar dados de Banco de Dados
         public List<Cachorro> GetCachorros(TipoGenero genero)
         {
-            return _bandodedados.Table<Cachorro>().Where(c => c.Genero == genero).ToList();
+            return _bandodedados.Table<Cachorro>().Where(c => c.Genero == Globais.MeuFiltro.CachorroGenero
+                                                            && c.AnoNascimento >= Globais.MeuFiltro.IdadeMinima
+                                                            && c.AnoNascimento <= Globais.MeuFiltro.IdadeMaxima
+                                                            && Models.DistanceAlgorithm.DistanceBetweenPlaces(c.Regiao_Longitude, c.Regiao_Longitude, Globais.MeusDados.CachorroLongitude, Globais.MeusDados.CachorroLatitude) <= Globais.MeuFiltro.DistanciaMaxima ).ToList();
         }
 
         public void GetFiltroUsuario()
         {
             if (_bandodedados != null)
             {
-                Globais.MeuFiltro = _bandodedados.Table<FiltroUsuario>().Where(c => c.IdDono == Globais.MeusDados.IdDono).First();
+                Globais.MeuFiltro = _bandodedados.Table<FiltroUsuario>().Where(c => c.IdDono == Globais.MeusDados.IdDono).FirstOrDefault();
             }
-            //Else não foi inicializado o banco de dados
         }
 
         public bool PrimeiroAcesso(string IdFacebook)
@@ -60,17 +64,15 @@ namespace TinPet_Projeto.Database
         public void UpdateFiltrousuario()
         {
             //Não precisa checar se não existe o campo filtro pois ele deverá existir de qualquer antes dessa chamada...
-            var existingUser = _bandodedados.Query<FiltroUsuario>("select * from FiltroUsuario where Id = ?", Globais.MeuFiltro.IdDono).FirstOrDefault();
+            var existingUser = _bandodedados.Query<FiltroUsuario>("select * from FiltroUsuario where IdDono = ?", Globais.MeuFiltro.IdDono).FirstOrDefault();
             if (existingUser != null)
             {
                 //pegamos o dado do banco de dados
                 //hora de atualizar ele
-                existingUser.CachorroId = Globais.MeuFiltro.CachorroId;
                 existingUser.CachorroGenero = Globais.MeuFiltro.CachorroGenero;
-                existingUser.CachorroAnoNascimento = Globais.MeuFiltro.CachorroAnoNascimento;
-                existingUser.CachorroLatitude = Globais.MeuFiltro.CachorroLatitude;
-                existingUser.CachorroLatitude = Globais.MeuFiltro.CachorroLongitude;
-
+                existingUser.DistanciaMaxima= Globais.MeuFiltro.DistanciaMaxima;
+                existingUser.IdadeMaxima = Globais.MeuFiltro.IdadeMaxima;
+                existingUser.IdadeMinima = Globais.MeuFiltro.IdadeMinima;
 
                 _bandodedados.RunInTransaction(() =>
                 {
@@ -87,11 +89,14 @@ namespace TinPet_Projeto.Database
             {
                 //pegamos o dado do banco de dados
                 //hora de atualizar ele
-                existingUser.CachorroId = Globais.MeuFiltro.CachorroId;
-                existingUser.CachorroGenero = Globais.MeuFiltro.CachorroGenero;
-                existingUser.CachorroAnoNascimento = Globais.MeuFiltro.CachorroAnoNascimento;
-                existingUser.CachorroLatitude = Globais.MeuFiltro.CachorroLatitude;
-                existingUser.CachorroLatitude = Globais.MeuFiltro.CachorroLongitude;
+                existingUser.CachorroId = Globais.MeusDados.CachorroId ;
+                existingUser.CachorroAnoNascimento = Globais.MeusDados.CachorroAnoNascimento;
+                existingUser.CachorroGenero = Globais.MeusDados.CachorroGenero;
+                existingUser.CachorroLatitude = Globais.MeusDados.CachorroLatitude;
+                existingUser.CachorroLongitude = Globais.MeusDados.CachorroLongitude;
+                existingUser.CachorroNome = Globais.MeusDados.CachorroNome;
+                existingUser.CachorroRaca= Globais.MeusDados.CachorroRaca;
+                existingUser.Foto = Globais.MeusDados.Foto;
 
                 _bandodedados.RunInTransaction(() =>
                 {

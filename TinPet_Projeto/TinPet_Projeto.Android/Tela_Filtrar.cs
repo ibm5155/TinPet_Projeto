@@ -23,6 +23,9 @@ namespace TinPet_Projeto.Droid
         DrawerLayout drawerLayout;
         NavigationView navigationView;
 
+        EditText InputBox_Idade_Minima;
+        EditText InputBox_Idade_Maxima;
+        SeekBar Slider_Distancia;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -43,6 +46,14 @@ namespace TinPet_Projeto.Droid
             navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
             navigationView.NavigationItemSelected += NavigationView_NavigationItemSelected;
 
+            InputBox_Idade_Minima = FindViewById<EditText>(Resource.Id.InputBox_Idade_Minima);
+            InputBox_Idade_Maxima = FindViewById<EditText>(Resource.Id.InputBox_Idade_Maxima);
+            Slider_Distancia = FindViewById<SeekBar>(Resource.Id.Slider_Distancia);
+            Slider_Distancia.Progress = Globais.MeuFiltro.DistanciaMaxima;
+
+            InputBox_Idade_Maxima.Text = Globais.MeuFiltro.IdadeMaxima.ToString();
+            InputBox_Idade_Minima.Text = Globais.MeuFiltro.IdadeMinima.ToString();
+
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -61,13 +72,23 @@ namespace TinPet_Projeto.Droid
             switch (e.MenuItem.ItemId)
             {
                 case (Resource.Id.nav_buscapets):
+                    AtualizaBancodeDados();
                     StartActivity(typeof(Tela_SelecionaAnimais));
                     break;
                 case (Resource.Id.nav_meuspets):
+                    AtualizaBancodeDados();
                     StartActivity(typeof(Tela_MeuPet));
                     break;
 
             }
+        }
+
+        void AtualizaBancodeDados()
+        {
+            Globais.MeuFiltro.DistanciaMaxima = Slider_Distancia.Progress;
+            Globais.MeuFiltro.IdadeMaxima =  int.Parse(InputBox_Idade_Maxima.Text);
+            Globais.MeuFiltro.IdadeMinima = int.Parse(InputBox_Idade_Minima.Text);
+            Globais.BancoDeDados.UpdateFiltrousuario();
         }
 
 

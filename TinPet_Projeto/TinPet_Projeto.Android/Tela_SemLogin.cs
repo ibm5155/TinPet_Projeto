@@ -57,6 +57,7 @@ namespace TinPet_Projeto.Droid
                         }
                         else
                         {
+                            Globais.BancoDeDados.GetFiltroUsuario();
                             StartActivity(typeof(Tela_SelecionaAnimais));
                         }
 

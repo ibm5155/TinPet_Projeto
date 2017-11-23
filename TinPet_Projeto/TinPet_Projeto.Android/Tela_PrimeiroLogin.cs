@@ -10,13 +10,15 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Support.V7.App;
-using TinPet_Projeto.Models;
-using TinPet_Projeto.Droid.ImageHandler;
-using FFImageLoading.Views;
-using TinPet_Projeto.APIS;
-using System.IO;
 using Android.Support.Design.Widget;
 using Android.Graphics.Drawables;
+
+using FFImageLoading.Views;
+using TinPet_Projeto.APIS;
+using TinPet_Projeto.Models;
+using TinPet_Projeto.Droid.ImageHandler;
+
+using System.IO;
 using System.Drawing;
 using System.Threading.Tasks;
 
@@ -119,6 +121,13 @@ namespace TinPet_Projeto.Droid
                     case 5:
                         //dados coletados, partiu proxima tela
                         Globais.BancoDeDados.InsertInto_DadosPessoais();
+                        Globais.MeuFiltro = new FiltroUsuario();
+                        Globais.MeuFiltro.CachorroGenero = Globais.MeusDados.CachorroGenero == TipoGenero.Feminino ? TipoGenero.Masculino : TipoGenero.Feminino;
+                        Globais.MeuFiltro.DistanciaMaxima = 30;//Km
+                        Globais.MeuFiltro.IdadeMaxima = 12;
+                        Globais.MeuFiltro.IdadeMinima = 5;
+                        Globais.MeuFiltro.IdDono = Globais.MeusDados.IdDono;
+                        Globais.BancoDeDados.InsertInto_FiltroUsuario();
 
                         StartActivity(typeof(Tela_Filtrar));
                         break;
