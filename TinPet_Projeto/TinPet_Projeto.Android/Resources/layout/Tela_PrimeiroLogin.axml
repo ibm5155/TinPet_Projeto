@@ -94,6 +94,10 @@
             <TextView
                 android:text="Selecione a Raça do Cachorro"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
+            <ListView
+                android:id="@+id/Tela_PC_ListaRaca"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
         </GridLayout>
     <!--Foto-->
         <GridLayout
@@ -119,5 +123,8 @@
         android:layout_width="90.0dp"
         android:layout_gravity="end"
         android:src="@drawable/Next"
-        android:layout_marginRight="50.0dp" />
+        android:background="#433333"
+        android:layout_marginRight="50.0dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:backgroundTint="#d3d3d3d3" />
 </GridLayout>

@@ -45,6 +45,8 @@ namespace TinPet_Projeto.Droid
         GridLayout Grid5;
         GridLayout Grid6;
         LinearLayout LL;
+        ListView ListaView;
+        int ListaItemSelecionado;
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -68,10 +70,16 @@ namespace TinPet_Projeto.Droid
             Grid5 = FindViewById<GridLayout>(Resource.Id.Tela_PC_Grid05);
             Grid6 = FindViewById<GridLayout>(Resource.Id.Tela_PC_Grid06);
             LL = FindViewById<LinearLayout>(Resource.Id.Tela_PC_LL);
+            ListaView = FindViewById<ListView>(Resource.Id.Tela_PC_ListaRaca);
+
             Globais.MeusDados = new DadosPessoais();
             Globais.MeusDados.IdDono = Intent.GetStringExtra("MyData") ?? null;
             CriaListaRacas();
 
+            ListaView.ItemClick += delegate (object sender, AdapterView.ItemClickEventArgs e) {
+
+                ListaItemSelecionado = e.Position;
+            };
             Botao_Proximo.Click += async delegate
             {
                 Botao_Proximo.Enabled = false;
@@ -105,9 +113,9 @@ namespace TinPet_Projeto.Droid
                         }
                         break;
                     case 4:
-                        //int id = Lista_Racas_Cachorro.SelectedIndex;
-                        // if (id > 0 && id < 11)
-                        // {
+                        int id= ListaItemSelecionado;                        
+                         if (id > 0 && id < 11)
+                         {
                         EtapaAtual++;
                         //                            Globais.MeusDados.CachorroRaca = (Raca)
                         LL.RemoveViewAt(0);
@@ -116,7 +124,7 @@ namespace TinPet_Projeto.Droid
 #warning Arruma essas cores depois
                         Botao_Proximo.SetImageResource(Resource.Drawable.Okpng);
 
-                        // }
+                         }
                         break;
                     case 5:
                         //dados coletados, partiu proxima tela
@@ -193,18 +201,22 @@ namespace TinPet_Projeto.Droid
 
         private void CriaListaRacas()
         {
-            /*  Lista_Racas_Cachorro.Items.Add((new TextBlock() { Text = Cachorro.GetRacaNome(Raca.Vira_Lata), FontSize = 18 }));
-              Lista_Racas_Cachorro.Items.Add((new TextBlock() { Text = Cachorro.GetRacaNome(Raca.Husky_Siberiano), FontSize = 18 }));
-              Lista_Racas_Cachorro.Items.Add((new TextBlock() { Text = Cachorro.GetRacaNome(Raca.Shih_Tzu), FontSize = 18 }));
-              Lista_Racas_Cachorro.Items.Add((new TextBlock() { Text = Cachorro.GetRacaNome(Raca.Chow_Chow), FontSize = 18 }));
-              Lista_Racas_Cachorro.Items.Add((new TextBlock() { Text = Cachorro.GetRacaNome(Raca.Golden_Retriever), FontSize = 18 }));
-              Lista_Racas_Cachorro.Items.Add((new TextBlock() { Text = Cachorro.GetRacaNome(Raca.Dalmatas), FontSize = 18 }));
-              Lista_Racas_Cachorro.Items.Add((new TextBlock() { Text = Cachorro.GetRacaNome(Raca.Beagle), FontSize = 18 }));
-              Lista_Racas_Cachorro.Items.Add((new TextBlock() { Text = Cachorro.GetRacaNome(Raca.Sao_Bernardo), FontSize = 18 }));
-              Lista_Racas_Cachorro.Items.Add((new TextBlock() { Text = Cachorro.GetRacaNome(Raca.Samoieda), FontSize = 18 }));
-              Lista_Racas_Cachorro.Items.Add((new TextBlock() { Text = Cachorro.GetRacaNome(Raca.Luluda_Pomerania), FontSize = 18 }));
-              Lista_Racas_Cachorro.Items.Add((new TextBlock() { Text = Cachorro.GetRacaNome(Raca.Akita), FontSize = 18 }));
-    */
+            List<string>  Lista_Racas_Cachorro = new List<string>();
+              Lista_Racas_Cachorro.Add(Cachorro.GetRacaNome(Raca.Vira_Lata));
+              Lista_Racas_Cachorro.Add(Cachorro.GetRacaNome(Raca.Husky_Siberiano));
+              Lista_Racas_Cachorro.Add(Cachorro.GetRacaNome(Raca.Shih_Tzu));
+              Lista_Racas_Cachorro.Add(Cachorro.GetRacaNome(Raca.Chow_Chow));
+              Lista_Racas_Cachorro.Add(Cachorro.GetRacaNome(Raca.Golden_Retriever));
+              Lista_Racas_Cachorro.Add(Cachorro.GetRacaNome(Raca.Dalmatas));
+              Lista_Racas_Cachorro.Add(Cachorro.GetRacaNome(Raca.Beagle));
+              Lista_Racas_Cachorro.Add(Cachorro.GetRacaNome(Raca.Sao_Bernardo));
+              Lista_Racas_Cachorro.Add(Cachorro.GetRacaNome(Raca.Samoieda));
+              Lista_Racas_Cachorro.Add(Cachorro.GetRacaNome(Raca.Luluda_Pomerania));
+              Lista_Racas_Cachorro.Add(Cachorro.GetRacaNome(Raca.Akita));
+
+            // Agora que já temos os dados, vamos criar um Adapter, no caso um ArrayAdapter
+            var ListAdapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, Lista_Racas_Cachorro);
+            ListaView.SetAdapter(ListAdapter);
         }
 
         bool ValidaNome()

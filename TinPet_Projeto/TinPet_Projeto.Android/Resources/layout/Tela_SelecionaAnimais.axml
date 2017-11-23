@@ -21,7 +21,8 @@
             android:focusable="false"
             android:longClickable="false"
             android:src="@drawable/Logo"
-            android:layout_marginBottom="0.0dp" />
+            android:layout_marginBottom="0.0dp"
+            android:scaleType="fitCenter" />
     </android.support.v7.widget.Toolbar>
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"
@@ -142,7 +143,8 @@
                     android:layout_height="50.0dp"
                     android:layout_width="50.0dp"
                     android:layout_gravity="bottom|end"
-                    android:src="@drawable/x" />
+                    android:src="@drawable/x"
+                    android:scaleType="fitCenter" />
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/botao_like"
                     android:layout_height="50.0dp"

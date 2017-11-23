@@ -29,6 +29,7 @@ namespace TinPet_Projeto.Droid
         DrawerLayout drawerLayout;
         NavigationView navigationView;
         ImgAPI API_Imagem = new ImgAPI();
+        ImgAPI API_Imagem3 = new ImgAPI();
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -58,11 +59,13 @@ namespace TinPet_Projeto.Droid
             var Pnt_Raca = FindViewById<TextView>(Resource.Id.Tela_MeuPet_Raca);
             var Pnt_Foto = FindViewById<ImageViewAsync>(Resource.Id.Tela_MeuPet_Imagem);
             var Pnt_Mapa = FindViewById<ImageViewAsync>(Resource.Id.Tela_MeuPet_Mapa);
+            var Pnt_Genero = FindViewById<ImageViewAsync>(Resource.Id.Tela_MeuPet_Genero);
 
             Pnt_Nome.Text = Globais.MeusDados.CachorroNome;
             Pnt_Idade.Text = (DateTime.Now.Year - Globais.MeusDados.CachorroAnoNascimento).ToString();
             Pnt_Raca.Text = Cachorro.GetRacaNome(Globais.MeusDados.CachorroRaca);
             API_Imagem.CarregaImagemMemoria(ref Pnt_Foto, Globais.MeusDados.Foto, false);
+            API_Imagem3.CarregaImagemResources(ref Pnt_Genero, (Globais.MeusDados.CachorroGenero == TipoGenero.Masculino ? "Masculino.png" : "Feminino.png"), false);
 
 
             new Task(async ()=>

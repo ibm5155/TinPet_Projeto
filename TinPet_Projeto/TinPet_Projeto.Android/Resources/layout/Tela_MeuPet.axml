@@ -71,8 +71,8 @@
                     android:layout_marginTop="5.0dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
-                    <ImageView
-                        android:src="@drawable/loading"
+                  <FFImageLoading.Views.ImageViewAsync
+                      android:src="@drawable/loading"
                         android:layout_width="100.0dp"
                         android:layout_height="100.0dp"
                         android:id="@+id/Tela_MeuPet_Genero"
