@@ -3131,32 +3131,32 @@ namespace TinPet_Projeto.Droid
 			// aapt resource value: 0x7f0b009e
 			public const int BotaoSomar = 2131427486;
 			
-			// aapt resource value: 0x7f0b00fb
-			public const int Botao_Login = 2131427579;
+			// aapt resource value: 0x7f0b00fc
+			public const int Botao_Login = 2131427580;
 			
 			// aapt resource value: 0x7f0b0034
 			public const int CTRL = 2131427380;
 			
-			// aapt resource value: 0x7f0b00f2
-			public const int CachorroAtual_IMG = 2131427570;
-			
-			// aapt resource value: 0x7f0b00f5
-			public const int Cachorro_Distancia = 2131427573;
+			// aapt resource value: 0x7f0b00f3
+			public const int CachorroAtual_IMG = 2131427571;
 			
 			// aapt resource value: 0x7f0b00f6
-			public const int Cachorro_Idade = 2131427574;
+			public const int Cachorro_Distancia = 2131427574;
 			
-			// aapt resource value: 0x7f0b00f3
-			public const int Cachorro_Nome = 2131427571;
+			// aapt resource value: 0x7f0b00f7
+			public const int Cachorro_Idade = 2131427575;
 			
 			// aapt resource value: 0x7f0b00f4
-			public const int Cachorro_Raca = 2131427572;
+			public const int Cachorro_Nome = 2131427572;
+			
+			// aapt resource value: 0x7f0b00f5
+			public const int Cachorro_Raca = 2131427573;
 			
 			// aapt resource value: 0x7f0b0035
 			public const int FUNCTION = 2131427381;
 			
-			// aapt resource value: 0x7f0b00f9
-			public const int GridLayout1 = 2131427577;
+			// aapt resource value: 0x7f0b00fa
+			public const int GridLayout1 = 2131427578;
 			
 			// aapt resource value: 0x7f0b00d3
 			public const int InputBox_Idade_Maxima = 2131427539;
@@ -3191,62 +3191,62 @@ namespace TinPet_Projeto.Droid
 			// aapt resource value: 0x7f0b00d9
 			public const int Slider_Distancia = 2131427545;
 			
-			// aapt resource value: 0x7f0b00dd
-			public const int Tela_MeuPet_Ano = 2131427549;
-			
-			// aapt resource value: 0x7f0b00df
-			public const int Tela_MeuPet_Genero = 2131427551;
-			
-			// aapt resource value: 0x7f0b00dc
-			public const int Tela_MeuPet_Imagem = 2131427548;
-			
 			// aapt resource value: 0x7f0b00de
-			public const int Tela_MeuPet_Nome = 2131427550;
+			public const int Tela_MeuPet_Ano = 2131427550;
 			
 			// aapt resource value: 0x7f0b00e0
-			public const int Tela_MeuPet_Raca = 2131427552;
+			public const int Tela_MeuPet_Genero = 2131427552;
 			
-			// aapt resource value: 0x7f0b00e5
-			public const int Tela_PC_Ano_Cachorro = 2131427557;
+			// aapt resource value: 0x7f0b00dd
+			public const int Tela_MeuPet_Imagem = 2131427549;
 			
-			// aapt resource value: 0x7f0b00e9
-			public const int Tela_PC_Btn_Feminino = 2131427561;
-			
-			// aapt resource value: 0x7f0b00e8
-			public const int Tela_PC_Btn_Masculino = 2131427560;
-			
-			// aapt resource value: 0x7f0b00eb
-			public const int Tela_PC_Endereco_Cachorro = 2131427563;
-			
-			// aapt resource value: 0x7f0b00ee
-			public const int Tela_PC_Foto = 2131427566;
-			
-			// aapt resource value: 0x7f0b00e2
-			public const int Tela_PC_Grid01 = 2131427554;
-			
-			// aapt resource value: 0x7f0b00e4
-			public const int Tela_PC_Grid02 = 2131427556;
-			
-			// aapt resource value: 0x7f0b00e6
-			public const int Tela_PC_Grid03 = 2131427558;
-			
-			// aapt resource value: 0x7f0b00ea
-			public const int Tela_PC_Grid04 = 2131427562;
-			
-			// aapt resource value: 0x7f0b00ec
-			public const int Tela_PC_Grid05 = 2131427564;
-			
-			// aapt resource value: 0x7f0b00ed
-			public const int Tela_PC_Grid06 = 2131427565;
+			// aapt resource value: 0x7f0b00df
+			public const int Tela_MeuPet_Nome = 2131427551;
 			
 			// aapt resource value: 0x7f0b00e1
-			public const int Tela_PC_LL = 2131427553;
+			public const int Tela_MeuPet_Raca = 2131427553;
 			
-			// aapt resource value: 0x7f0b00e3
-			public const int Tela_PC_Nome_Cachorro = 2131427555;
+			// aapt resource value: 0x7f0b00e6
+			public const int Tela_PC_Ano_Cachorro = 2131427558;
+			
+			// aapt resource value: 0x7f0b00ea
+			public const int Tela_PC_Btn_Feminino = 2131427562;
+			
+			// aapt resource value: 0x7f0b00e9
+			public const int Tela_PC_Btn_Masculino = 2131427561;
+			
+			// aapt resource value: 0x7f0b00ec
+			public const int Tela_PC_Endereco_Cachorro = 2131427564;
 			
 			// aapt resource value: 0x7f0b00ef
-			public const int Tela_PC_Proximo = 2131427567;
+			public const int Tela_PC_Foto = 2131427567;
+			
+			// aapt resource value: 0x7f0b00e3
+			public const int Tela_PC_Grid01 = 2131427555;
+			
+			// aapt resource value: 0x7f0b00e5
+			public const int Tela_PC_Grid02 = 2131427557;
+			
+			// aapt resource value: 0x7f0b00e7
+			public const int Tela_PC_Grid03 = 2131427559;
+			
+			// aapt resource value: 0x7f0b00eb
+			public const int Tela_PC_Grid04 = 2131427563;
+			
+			// aapt resource value: 0x7f0b00ed
+			public const int Tela_PC_Grid05 = 2131427565;
+			
+			// aapt resource value: 0x7f0b00ee
+			public const int Tela_PC_Grid06 = 2131427566;
+			
+			// aapt resource value: 0x7f0b00e2
+			public const int Tela_PC_LL = 2131427554;
+			
+			// aapt resource value: 0x7f0b00e4
+			public const int Tela_PC_Nome_Cachorro = 2131427556;
+			
+			// aapt resource value: 0x7f0b00f0
+			public const int Tela_PC_Proximo = 2131427568;
 			
 			// aapt resource value: 0x7f0b00be
 			public const int action0 = 2131427518;
@@ -3335,11 +3335,11 @@ namespace TinPet_Projeto.Droid
 			// aapt resource value: 0x7f0b00a0
 			public const int botaoProximaTela = 2131427488;
 			
-			// aapt resource value: 0x7f0b00f7
-			public const int botao_dislike = 2131427575;
-			
 			// aapt resource value: 0x7f0b00f8
-			public const int botao_like = 2131427576;
+			public const int botao_dislike = 2131427576;
+			
+			// aapt resource value: 0x7f0b00f9
+			public const int botao_like = 2131427577;
 			
 			// aapt resource value: 0x7f0b003e
 			public const int bottom = 2131427390;
@@ -3419,11 +3419,14 @@ namespace TinPet_Projeto.Droid
 			// aapt resource value: 0x7f0b0021
 			public const int disableHome = 2131427361;
 			
-			// aapt resource value: 0x7f0b00f1
-			public const int drawer_layout = 2131427569;
+			// aapt resource value: 0x7f0b00f2
+			public const int drawer_layout = 2131427570;
 			
 			// aapt resource value: 0x7f0b00cf
 			public const int drawer_layout_Tela_Filtrar = 2131427535;
+			
+			// aapt resource value: 0x7f0b00dc
+			public const int drawer_layout_Tela_MeuPet = 2131427548;
 			
 			// aapt resource value: 0x7f0b007f
 			public const int edit_query = 2131427455;
@@ -3485,8 +3488,8 @@ namespace TinPet_Projeto.Droid
 			// aapt resource value: 0x7f0b0060
 			public const int image = 2131427424;
 			
-			// aapt resource value: 0x7f0b00fa
-			public const int imageView1 = 2131427578;
+			// aapt resource value: 0x7f0b00fb
+			public const int imageView1 = 2131427579;
 			
 			// aapt resource value: 0x7f0b00c8
 			public const int info = 2131427528;
@@ -3509,8 +3512,8 @@ namespace TinPet_Projeto.Droid
 			// aapt resource value: 0x7f0b0018
 			public const int line3 = 2131427352;
 			
-			// aapt resource value: 0x7f0b00e7
-			public const int linearLayout2 = 2131427559;
+			// aapt resource value: 0x7f0b00e8
+			public const int linearLayout2 = 2131427560;
 			
 			// aapt resource value: 0x7f0b001e
 			public const int listMode = 2131427358;
@@ -3518,14 +3521,14 @@ namespace TinPet_Projeto.Droid
 			// aapt resource value: 0x7f0b0062
 			public const int list_item = 2131427426;
 			
-			// aapt resource value: 0x7f0b00fe
-			public const int masked = 2131427582;
+			// aapt resource value: 0x7f0b00ff
+			public const int masked = 2131427583;
 			
 			// aapt resource value: 0x7f0b00c1
 			public const int media_actions = 2131427521;
 			
-			// aapt resource value: 0x7f0b00fc
-			public const int message = 2131427580;
+			// aapt resource value: 0x7f0b00fd
+			public const int message = 2131427581;
 			
 			// aapt resource value: 0x7f0b0032
 			public const int middle = 2131427378;
@@ -3611,17 +3614,17 @@ namespace TinPet_Projeto.Droid
 			// aapt resource value: 0x7f0b0028
 			public const int multiply = 2131427368;
 			
-			// aapt resource value: 0x7f0b0101
-			public const int nav_buscapets = 2131427585;
-			
 			// aapt resource value: 0x7f0b0102
-			public const int nav_chat = 2131427586;
+			public const int nav_buscapets = 2131427586;
+			
+			// aapt resource value: 0x7f0b0103
+			public const int nav_chat = 2131427587;
+			
+			// aapt resource value: 0x7f0b0101
+			public const int nav_filtrarbusca = 2131427585;
 			
 			// aapt resource value: 0x7f0b0100
-			public const int nav_filtrarbusca = 2131427584;
-			
-			// aapt resource value: 0x7f0b00ff
-			public const int nav_meuspets = 2131427583;
+			public const int nav_meuspets = 2131427584;
 			
 			// aapt resource value: 0x7f0b00da
 			public const int nav_view = 2131427546;
@@ -3839,8 +3842,8 @@ namespace TinPet_Projeto.Droid
 			// aapt resource value: 0x7f0b0070
 			public const int title_template = 2131427440;
 			
-			// aapt resource value: 0x7f0b00f0
-			public const int toolbar = 2131427568;
+			// aapt resource value: 0x7f0b00f1
+			public const int toolbar = 2131427569;
 			
 			// aapt resource value: 0x7f0b00ce
 			public const int toolbar_Tela_Filtrar = 2131427534;
@@ -3887,8 +3890,8 @@ namespace TinPet_Projeto.Droid
 			// aapt resource value: 0x7f0b0016
 			public const int view_offset_helper = 2131427350;
 			
-			// aapt resource value: 0x7f0b00fd
-			public const int visible = 2131427581;
+			// aapt resource value: 0x7f0b00fe
+			public const int visible = 2131427582;
 			
 			// aapt resource value: 0x7f0b00b3
 			public const int volume_item_container = 2131427507;

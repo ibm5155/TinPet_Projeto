@@ -44,7 +44,7 @@ namespace TinPet_Projeto.Droid
             SupportActionBar.SetDisplayShowTitleEnabled(false);
             SupportActionBar.SetHomeButtonEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_menu);
-            drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout_Tela_Filtrar);
+            drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout_Tela_MeuPet);
             navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
             navigationView.NavigationItemSelected += NavigationView_NavigationItemSelected;
 
