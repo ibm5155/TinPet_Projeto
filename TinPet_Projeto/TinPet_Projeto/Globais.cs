@@ -14,5 +14,6 @@ namespace TinPet_Projeto
         public static FiltroUsuario MeuFiltro;
         public static DadosPessoais MeusDados;
         public static DataAccess BancoDeDados;
+        public static string Uid;
     }
 }

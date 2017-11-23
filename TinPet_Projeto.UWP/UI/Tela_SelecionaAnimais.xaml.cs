@@ -18,6 +18,8 @@ using TinPet_Projeto.UWP.ImageHandler;
 using TinPet_Projeto.UWP.Models;
 using Windows.Storage;
 using TinPet_Projeto.Database;
+using TinPet_Projeto.TypeConv;
+
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -101,8 +103,9 @@ namespace TinPet_Projeto.UWP.UI
                 imgAPI.CarregaImagemMemoria(ref CachorroAtual_IMG, Filtro[CachorroAtual].Imagem, false);
                 Cachorro_Nome.Text = Filtro[CachorroAtual].Nome;
                 Cachorro_Raca.Text = Filtro[CachorroAtual].Raca.ToString();
-                Idade.Text = (/*Temporário*/2017 -  Filtro[CachorroAtual].AnoNascimento).ToString();
-#warning        Tratar futuras datas caso for continuar o aplicativo...
+                Idade.Text = (DateTime.Now.Year -  Filtro[CachorroAtual].AnoNascimento).ToString();
+                Distancia.Text = DistanceAlgorithm.DistanceBetweenPlaces(Filtro[CachorroAtual].Regiao_Longitude, Filtro[CachorroAtual].Regiao_Longitude, Globais.MeusDados.CachorroLongitude, Globais.MeusDados.CachorroLatitude).ToString();
+
                 CachorroAtualCarregado = true;
             }
         }

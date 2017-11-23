@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using TinPet_Projeto.Database;
 using TinPet_Projeto.Models;
 using System.Collections.Generic;
+using TinPet_Projeto.TypeConv;
 
 namespace TinPet_Projeto.Droid
 {
@@ -30,6 +31,7 @@ namespace TinPet_Projeto.Droid
         private TextView Cachorro_Nome;
         private TextView Cachorro_Raca;
         private TextView Idade;
+        private TextView Distancia;
         private ImageViewAsync CachorroAtual_IMG;
 
         private List<Cachorro> Filtro;
@@ -59,6 +61,7 @@ namespace TinPet_Projeto.Droid
             Cachorro_Nome = FindViewById<TextView>(Resource.Id.Cachorro_Nome);
             Cachorro_Raca = FindViewById<TextView>(Resource.Id.Cachorro_Raca);
             Idade = FindViewById<TextView>(Resource.Id.Cachorro_Idade);
+            Distancia = FindViewById<TextView>(Resource.Id.Cachorro_Distancia);
             CachorroAtual_IMG = FindViewById< ImageViewAsync>(Resource.Id.CachorroAtual_IMG);
 
             /*nova Thread separada da UI*/
@@ -137,8 +140,9 @@ namespace TinPet_Projeto.Droid
                 RunOnUiThread(() =>
                 {
                     Cachorro_Nome.Text = Filtro[CachorroAtual].Nome;
-                    Cachorro_Raca.Text = Filtro[CachorroAtual].Raca.ToString();
-                    Idade.Text = "10";
+                    Cachorro_Raca.Text = Cachorro.GetRacaNome(Filtro[CachorroAtual].Raca);
+                    Idade.Text = (DateTime.Now.Year - Filtro[CachorroAtual].AnoNascimento).ToString();
+                    Distancia.Text = ((int)(DistanceAlgorithm.DistanceBetweenPlaces(Filtro[CachorroAtual].Regiao_Longitude, Filtro[CachorroAtual].Regiao_Longitude, Globais.MeusDados.CachorroLongitude, Globais.MeusDados.CachorroLatitude)) / 1000).ToString();
                 });
                 CachorroAtualCarregado = true;
             }

@@ -13,7 +13,7 @@
             <RowDefinition Height="Auto" MinHeight="285"></RowDefinition>
             <RowDefinition Height="118*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Image Grid.Row="0"  Source="ms-appx:///Assets/MainLogo.png"/>
+        <Image Grid.Row="0"  Source="ms-appx:///Assets/Logo.png"/>
         <Button Grid.Row="2" x:Name="Botao_Login" Content="CONECTAR COM O FACEBOOK" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Foreground="White" Background="#FF4267B2" FontWeight="Bold" FontFamily="Lucida Bright" Height="64"/>
 
 

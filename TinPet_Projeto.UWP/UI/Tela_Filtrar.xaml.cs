@@ -26,19 +26,35 @@ namespace TinPet_Projeto.UWP.UI
         {
             this.InitializeComponent();
 
+            Slider_Distancia.Value =Globais.MeuFiltro.DistanciaMaxima;
+            InputBox_Idade_Maxima.Text = Globais.MeuFiltro.IdadeMaxima.ToString();
+            InputBox_Idade_Minima.Text = Globais.MeuFiltro.IdadeMinima.ToString();
+
+
             Botao_Menu.Click += delegate
             {
                 MenuOpcoes.IsPaneOpen = !MenuOpcoes.IsPaneOpen;
             };
             Botao_Escolher_Animais.Click += delegate
             {
+                AtualizaBancodeDados();
                 this.Frame.Navigate(typeof(UI.Tela_SelecionaAnimais));
             };
             Botao_Configura_Animais.Click += delegate
             {
+                AtualizaBancodeDados();
                 this.Frame.Navigate(typeof(UI.Tela_MeuPet));
             };
 
         }
+
+        void AtualizaBancodeDados()
+        {
+            Globais.MeuFiltro.DistanciaMaxima = (int)Slider_Distancia.Value;
+            Globais.MeuFiltro.IdadeMaxima = int.Parse(InputBox_Idade_Maxima.Text);
+            Globais.MeuFiltro.IdadeMinima = int.Parse(InputBox_Idade_Minima.Text);
+            Globais.BancoDeDados.UpdateFiltrousuario();
+        }
+
     }
 }

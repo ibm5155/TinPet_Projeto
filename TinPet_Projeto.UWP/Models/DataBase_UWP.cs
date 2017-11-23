@@ -15,7 +15,7 @@ namespace TinPet_Projeto.UWP.Models
 {
     public class DataBase_UWP : IDataBase
     {
-//        private SQLiteConnection _database;
+        //        private SQLiteConnection _database;
         private Semaphore EsperaCopia = new Semaphore(0, 1);
         /*
         public async Task GetConnectionAsync()
@@ -34,8 +34,6 @@ namespace TinPet_Projeto.UWP.Models
         public SQLiteConnection GetConexaoLocal(string NomeDB)
         {
             /*Caminho da pasta + nome do arquivo*/
-            TransfereBandoDeDados(NomeDB);
-            EsperaCopia.WaitOne(); //O uso de semaforo vai evitar o uso de await nesta chamada
             var caminhoDB = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, NomeDB);
             return new SQLiteConnection(caminhoDB);
 
@@ -43,8 +41,9 @@ namespace TinPet_Projeto.UWP.Models
 
 
         /*Transfere o banco de dados interno do aplicativo para fora dele para que o SqLite possa usa-lo*/
-        public async Task TransfereBandoDeDados(string NomeDB)
+        public static async Task TransfereBandoDeDados(string NomeDB)
         {
+
             bool isExisting = false;
             try
             {
@@ -60,8 +59,6 @@ namespace TinPet_Projeto.UWP.Models
                 StorageFile databaseFile = await Package.Current.InstalledLocation.GetFileAsync(NomeDB);
                 await databaseFile.CopyAsync(ApplicationData.Current.LocalFolder, NomeDB, NameCollisionOption.ReplaceExisting);
             }
-            EsperaCopia.Release();
         }
-
     }
 }

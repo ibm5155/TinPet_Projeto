@@ -48,7 +48,7 @@
     <Compile Include="Models\GeradorID.cs" />
     <Compile Include="Models\IDataBase.cs" />
     <Compile Include="Models\IPicturePicker.cs" />
-    <Compile Include="Models\LatLonParaKm.cs" />
+    <Compile Include="TypeConv\LatLonParaKm.cs" />
     <Compile Include="Models\PicturePicker.cs" />
     <Compile Include="MyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -39,6 +39,8 @@ namespace TinPet_Projeto.UWP.UI
         {
             this.InitializeComponent();
             Globais.MeusDados = new DadosPessoais();
+            Globais.MeusDados.IdDono = Globais.Uid;
+            Globais.Uid = "";
 
             CriaListaRacas();
             Proximo_Botao.Click += async delegate
@@ -92,7 +94,17 @@ namespace TinPet_Projeto.UWP.UI
                         break;
                     case 5:
                         //dados coletados, partiu proxima tela
-                        this.Frame.Navigate(typeof(UI.Tela_SelecionaAnimais));
+                        //dados coletados, partiu proxima tela
+                        Globais.BancoDeDados.InsertInto_DadosPessoais();
+                        Globais.MeuFiltro = new FiltroUsuario();
+                        Globais.MeuFiltro.CachorroGenero = Globais.MeusDados.CachorroGenero == TipoGenero.Feminino ? TipoGenero.Masculino : TipoGenero.Feminino;
+                        Globais.MeuFiltro.DistanciaMaxima = 30;//Km
+                        Globais.MeuFiltro.IdadeMaxima = 12;
+                        Globais.MeuFiltro.IdadeMinima = 5;
+                        Globais.MeuFiltro.IdDono = Globais.MeusDados.IdDono;
+                        Globais.BancoDeDados.InsertInto_FiltroUsuario();
+
+                        this.Frame.Navigate(typeof(UI.Tela_Filtrar));
                         break;
                 }
             };

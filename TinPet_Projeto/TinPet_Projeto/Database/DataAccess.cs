@@ -7,6 +7,7 @@ using SQLite;
 using TinPet_Projeto.Models;
 using MvvmCross.Platform;
 using MvvmCross.Platform.IoC;
+using TinPet_Projeto.TypeConv;
 using MvvmCross.Core.ViewModels;
 
 using TinPet_Projeto;
@@ -31,10 +32,37 @@ namespace TinPet_Projeto.Database
         #region Pegar dados de Banco de Dados
         public List<Cachorro> GetCachorros(TipoGenero genero)
         {
-            return _bandodedados.Table<Cachorro>().Where(c => c.Genero == Globais.MeuFiltro.CachorroGenero
-                                                            && c.AnoNascimento >= Globais.MeuFiltro.IdadeMinima
-                                                            && c.AnoNascimento <= Globais.MeuFiltro.IdadeMaxima
-                                                            && Models.DistanceAlgorithm.DistanceBetweenPlaces(c.Regiao_Longitude, c.Regiao_Longitude, Globais.MeusDados.CachorroLongitude, Globais.MeusDados.CachorroLatitude) <= Globais.MeuFiltro.DistanciaMaxima ).ToList();
+            int AnoHoje = DateTime.Now.Year;
+            int FiltroIdadeMinima = DateTime.Now.Year + Globais.MeuFiltro.IdadeMinima;
+            int FiltroIdadeMaxima = DateTime.Now.Year + Globais.MeuFiltro.IdadeMaxima;
+            List<Cachorro> LC = _bandodedados.Table<Cachorro>().ToList();
+            for(int i=0; i < LC.Count; i++)
+            {
+                if(LC[i].Genero != Globais.MeuFiltro.CachorroGenero)
+                {
+                    LC.RemoveAt(i);
+                    i--;
+                }
+                else if(AnoHoje - LC[i].AnoNascimento  < Globais.MeuFiltro.IdadeMinima)
+                {
+                    LC.RemoveAt(i);
+                    i--;
+                }
+                else if (AnoHoje - LC[i].AnoNascimento > Globais.MeuFiltro.IdadeMaxima)
+                {
+                    LC.RemoveAt(i);
+                    i--;
+                }
+                else if(DistanceAlgorithm.DistanceBetweenPlaces(LC[i].Regiao_Longitude, LC[i].Regiao_Longitude, Globais.MeusDados.CachorroLongitude, Globais.MeusDados.CachorroLatitude)/1000 > Globais.MeuFiltro.DistanciaMaxima)
+                {
+                    double x = DistanceAlgorithm.DistanceBetweenPlaces(LC[i].Regiao_Longitude, LC[i].Regiao_Longitude, Globais.MeusDados.CachorroLongitude, Globais.MeusDados.CachorroLatitude);
+                    LC.RemoveAt(i);
+                    i--;
+
+                }
+
+            }
+            return LC;
         }
 
         public void GetFiltroUsuario()

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TinPet_Projeto.Models
+namespace TinPet_Projeto.TypeConv
 {
-    static class DistanceAlgorithm
+    public static class DistanceAlgorithm
     {
         const double PIx = 3.141592653589793;
         const double RADIUS = 6378.16;
