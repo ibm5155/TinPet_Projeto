@@ -49,9 +49,17 @@ namespace TinPet_Projeto.Droid
 
                         //Inicia o banco de dados local
                         Globais.BancoDeDados = new DataAccess();
+                        if(Globais.BancoDeDados.PrimeiroAcesso(Usuario.Id) == true)
+                        {
+                            var ActivityComArg = new Intent(this, typeof(Tela_PrimeiroLogin));
+                            ActivityComArg.PutExtra("MyData", Usuario.Id);
+                            StartActivity(ActivityComArg);
+                        }
+                        else
+                        {
+                            StartActivity(typeof(Tela_SelecionaAnimais));
+                        }
 
-                        StartActivity(typeof(Tela_PrimeiroLogin));
-                        //StartActivity(typeof(Tela_SelecionaAnimais));
 
                     }
                     else

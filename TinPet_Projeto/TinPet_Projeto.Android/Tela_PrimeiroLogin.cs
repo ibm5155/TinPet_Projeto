@@ -67,6 +67,7 @@ namespace TinPet_Projeto.Droid
             Grid6 = FindViewById<GridLayout>(Resource.Id.Tela_PC_Grid06);
             LL = FindViewById<LinearLayout>(Resource.Id.Tela_PC_LL);
             Globais.MeusDados = new DadosPessoais();
+            Globais.MeusDados.IdDono = Intent.GetStringExtra("MyData") ?? null;
             CriaListaRacas();
 
             Botao_Proximo.Click += async delegate
@@ -117,6 +118,8 @@ namespace TinPet_Projeto.Droid
                         break;
                     case 5:
                         //dados coletados, partiu proxima tela
+                        Globais.BancoDeDados.InsertInto_DadosPessoais();
+
                         StartActivity(typeof(Tela_Filtrar));
                         break;
                 }

@@ -41,14 +41,16 @@ namespace TinPet_Projeto.Database
             //Else não foi inicializado o banco de dados
         }
 
-        public bool PrimeiroAcesso()
+        public bool PrimeiroAcesso(string IdFacebook)
         {
-            bool retorno = false;
+            bool retorno = true;
             if (_bandodedados != null)
             {
                 DadosPessoais MeusDados2 = null;
-                 MeusDados2 = _bandodedados.Table<DadosPessoais>().FirstOrDefault();
+                MeusDados2 = _bandodedados.Table<DadosPessoais>().Where(c => c.IdDono == IdFacebook).FirstOrDefault();
+                Globais.MeusDados = MeusDados2;
                 retorno = MeusDados2 == null;
+
             }
             return retorno;
         }
@@ -113,7 +115,8 @@ namespace TinPet_Projeto.Database
         #region Insert into Banco de Dados
         public void InsertInto_DadosPessoais()
         {
-            _bandodedados.Insert(Globais.MeusDados);
+
+             _bandodedados.Insert(Globais.MeusDados);
         }
         public void InsertInto_FiltroUsuario()
         {
