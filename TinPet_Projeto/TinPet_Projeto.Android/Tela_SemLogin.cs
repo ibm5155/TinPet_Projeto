@@ -19,7 +19,7 @@ using Android.Support.V7.App;
 
 namespace TinPet_Projeto.Droid
 {
-    [Activity(Label = "TelaSemLogin", Theme = "@style/Theme.DesignDemo", MainLauncher = true)]
+    [Activity(Label = "TelaSemLogin", Theme = "@style/Theme.DesignDemo", MainLauncher = false)]
     public class Tela_SemLogin : AppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
@@ -50,7 +50,8 @@ namespace TinPet_Projeto.Droid
                         //Inicia o banco de dados local
                         Globais.BancoDeDados = new DataAccess();
 
-                        StartActivity(typeof(Tela_SelecionaAnimais));
+                        StartActivity(typeof(Tela_PrimeiroLogin));
+                        //StartActivity(typeof(Tela_SelecionaAnimais));
 
                     }
                     else

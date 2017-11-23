@@ -19,7 +19,7 @@ using System.Collections.Generic;
 
 namespace TinPet_Projeto.Droid
 {
-    [Activity(Label = "TelaCachorro", Theme = "@style/Theme.DesignDemo", MainLauncher = true)]
+    [Activity(Label = "TelaCachorro", Theme = "@style/Theme.DesignDemo", MainLauncher = false)]
     public class Tela_SelecionaAnimais : AppCompatActivity
     {
         DrawerLayout drawerLayout;

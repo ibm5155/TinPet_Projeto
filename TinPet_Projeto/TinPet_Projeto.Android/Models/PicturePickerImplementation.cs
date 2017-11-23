@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Android.Net;
 
 using Android.App;
 using Android.Content;
@@ -25,18 +26,20 @@ namespace TinPet_Projeto.Droid.Models
             intent.SetAction(Intent.ActionGetContent);
 
             // Get the MainActivity instance
-            MainActivity activity = Android.App.Application.Context as MainActivity;
+            //            MainActivity activity = MainActivity.Instance;
 
             // Start the picture-picker activity (resumes in MainActivity.cs)
-            activity.StartActivityForResult(
-                Intent.CreateChooser(intent, "Select Picture"),
-                MainActivity.PickImageId);
+
+            APIS.FileHelper_Assets.Instance.StartActivityForResult(
+                Intent.CreateChooser(intent, "Selecione uma Imagem"),
+                100);
 
             // Save the TaskCompletionSource object as a MainActivity property
-            activity.PickImageTaskCompletionSource = new TaskCompletionSource<Stream>();
+            APIS.FileHelper_Assets.PickImageTaskCompletionSource = new TaskCompletionSource<Stream>();
 
             // Return Task object
-            return activity.PickImageTaskCompletionSource.Task;
+            return APIS.FileHelper_Assets.PickImageTaskCompletionSource.Task;
         }
+
     }
 }

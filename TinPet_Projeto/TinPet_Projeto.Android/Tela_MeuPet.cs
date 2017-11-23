@@ -20,7 +20,7 @@ using FFImageLoading.Views;
 
 namespace TinPet_Projeto.Droid
 {
-    [Activity(Label = "TelaMeuPet", Theme = "@style/Theme.DesignDemo", MainLauncher = true)]
+    [Activity(Label = "TelaMeuPet", Theme = "@style/Theme.DesignDemo", MainLauncher = false)]
     public class Tela_MeuPet : AppCompatActivity
     {
         DrawerLayout drawerLayout;
@@ -32,6 +32,11 @@ namespace TinPet_Projeto.Droid
         {
 
             base.OnCreate(savedInstanceState);
+
+
+            // Set our view from the "main" layout resource
+            SetContentView(Resource.Layout.Tela_MeuPet);
+
 
             var toolbar = FindViewById<V7Toolbar>(Resource.Id.toolbar_Tela_MeuPet);
             SetSupportActionBar(toolbar);

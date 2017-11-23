@@ -21,8 +21,7 @@ namespace TinPet_Projeto.Droid
 	[Activity (Label = "TinPet_Projeto.Android", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
-
-		protected override void OnCreate (Bundle bundle)
+        protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
@@ -76,33 +75,7 @@ namespace TinPet_Projeto.Droid
             };
 
         }
-
-        // Field, property, and method for Picture Picker
-        public static readonly int PickImageId = 1000;
-
-        //https://developer.xamarin.com/guides/xamarin-forms/application-fundamentals/dependency-service/photo-picker/
-        public TaskCompletionSource<Stream> PickImageTaskCompletionSource { set; get; }
-
-        protected override void OnActivityResult(int requestCode, Result resultCode, Intent intent)
-        {
-            base.OnActivityResult(requestCode, resultCode, intent);
-
-            if (requestCode == PickImageId)
-            {
-                if ((resultCode == Result.Ok) && (intent != null))
-                {
-                    Android.Net.Uri uri = intent.Data;
-                    Stream stream = ContentResolver.OpenInputStream(uri);
-
-                    // Set the Stream as the completion of the Task
-                    PickImageTaskCompletionSource.SetResult(stream);
-                }
-                else
-                {
-                    PickImageTaskCompletionSource.SetResult(null);
-                }
-            }
-        }
+        
     }
 }
 

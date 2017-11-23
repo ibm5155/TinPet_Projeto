@@ -175,11 +175,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tela_Filtrar.cs" />
     <Compile Include="Tela_MeuPet.cs" />
+    <Compile Include="Tela_PrimeiroLogin.cs" />
     <Compile Include="Tela_SelecionaAnimais.cs" />
     <Compile Include="Tela_SemLogin.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="Resources\app.config">
+      <SubType>Designer</SubType>
+    </None>
     <AndroidAsset Include="Assets\Cachorros.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AndroidAsset>
@@ -200,6 +203,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Tela_MeuPet.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Tela_PrimeiroLogin.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

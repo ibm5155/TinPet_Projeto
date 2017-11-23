@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/Tela_PC_LL"
+        android:layout_height="500.0dp"
+        android:layout_width="wrap_content">
+    <!--Nome-->
+        <GridLayout
+            android:layout_width="370.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/Tela_PC_Grid01"
+            android:orientation="vertical">
+            <TextView
+                android:text="Digite O Nome do Cachorro"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <EditText
+                android:id="@+id/Tela_PC_Nome_Cachorro"
+                android:layout_width="300.0dp"
+                android:layout_marginTop="30.0dp" />
+        </GridLayout>
+    <!--Ano-->
+        <GridLayout
+            android:layout_width="370.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/Tela_PC_Grid02"
+            android:orientation="vertical"
+            android:visibility="visible">
+            <TextView
+                android:text="Digite o ano em que o cachorro nasceu"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <EditText
+                android:id="@+id/Tela_PC_Ano_Cachorro"
+                android:inputType="numberDecimal"
+                android:layout_width="300.0dp"
+                android:layout_marginTop="30.0dp" />
+        </GridLayout>
+    <!--Sexo-->
+        <GridLayout
+            android:layout_width="370.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/Tela_PC_Grid03"
+            android:orientation="vertical"
+            android:visibility="visible">
+            <TextView
+                android:text="Selecione o Genero do Cachorro"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/textView1" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/linearLayout2"
+                android:layout_marginTop="100.0dp"
+                android:layout_width="match_parent">
+                <Button
+                    android:text="Masculino"
+                    android:id="@+id/Tela_PC_Btn_Masculino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+                <Button
+                    android:text="FEMININO"
+                    android:id="@+id/Tela_PC_Btn_Feminino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="150.0dp" />
+            </LinearLayout>
+        </GridLayout>
+    <!--Localização-->
+        <GridLayout
+            android:layout_width="370.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/Tela_PC_Grid04"
+            android:orientation="vertical">
+            <TextView
+                android:text="Digite O endereço onde o Cachorro reside"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <EditText
+                android:id="@+id/Tela_PC_Endereco_Cachorro"
+                android:layout_width="300.0dp"
+                android:layout_marginTop="30.0dp" />
+        </GridLayout>
+    <!--Raça-->
+        <GridLayout
+            android:layout_width="370.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/Tela_PC_Grid05"
+            android:orientation="vertical">
+            <TextView
+                android:text="Selecione a Raça do Cachorro"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </GridLayout>
+    <!--Foto-->
+        <GridLayout
+            android:layout_width="370.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/Tela_PC_Grid06"
+            android:orientation="vertical">
+            <TextView
+                android:text="Adicione uma foto do cachorro tocando a imagem abaixo"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <FFImageLoading.Views.ImageViewAsync
+                android:src="@drawable/loading"
+                android:id="@+id/Tela_PC_Foto"
+                android:layout_marginTop="50.0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="300.0dp"
+                android:layout_width="300.0dp" />
+        </GridLayout>
+    </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/Tela_PC_Proximo"
+        android:layout_height="90.0dp"
+        android:layout_width="90.0dp"
+        android:layout_gravity="end"
+        android:src="@drawable/Next"
+        android:layout_marginRight="50.0dp" />
+</GridLayout>
