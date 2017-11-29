@@ -1,4 +1,4 @@
-# Tinpet
+ Tinpet
 
 
 TinPet é um projeto em que auxiliará as pessoas a encontrarem um cachorro para cruzar.
@@ -23,7 +23,7 @@ AVISO:
 | Plugin | README |
 | ------ | ------ |
 | Xamarin | https://github.com/xamarin  |
-| Github | [plugins/github/README.md] [PlGh] |
+| Github | plugins/github/README.md  |
 | Google Maps Api | https://developers.google.com/maps/ |
 | Google Geocode Api | https://developers.google.com/maps/documentation/geocoding/intro |
 | FFImageLoading | https://github.com/luberda-molinet/FFImageLoading |
